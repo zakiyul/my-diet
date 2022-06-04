@@ -9,7 +9,7 @@ const Dashboard = () => {
       <Navbar />
       <MainSide />
       <div className="content-wrapper">
-        <ContentHeader />
+        <ContentHeader title="Dashboard" />
         <div className="content">
           <div className="container-fluid">
             <div className="row">

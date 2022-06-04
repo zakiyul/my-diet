@@ -16,7 +16,10 @@ const TableComp = ({ data }) => {
           <thead>
             <tr>
               <th>#</th>
-              <th>Task</th>
+              <th>Nama</th>
+              <th>Harga</th>
+              <th>Rating</th>
+              <th>Image</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -26,6 +29,11 @@ const TableComp = ({ data }) => {
                 <tr>
                   <td>{d.id}</td>
                   <td>{d.nama}</td>
+                  <td>Rp. {d.harga}</td>
+                  <td>{d.rating}</td>
+                  <td>
+                      <img height='150px' src={`http://localhost:8000${d.image}`} alt={d.nama} />
+                  </td>
                   <td>
                     <button className="btn btn-primary">Update</button>
                   </td>

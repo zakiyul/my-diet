@@ -1,9 +1,14 @@
 .zk-card{
+  border: .3px solid rgb(234, 234, 234);
   border-radius: 24px;
   padding: 31.53px;
   margin: 12px 0;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   background-color: white;
+  transition: all ease-in .2s;
+}
+.zk-card:hover{
+  transition: all ease-out .2s;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .zk-card img{
   width: 100%;
@@ -26,3 +31,32 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+#about-us iframe {
+  border: 2px solid #0f8c8a;
+}
+.icon-fitur i {
+  color: #135587;
+}
+
+/* #about-us iframe {
+  border: 2px solid #0f8c8a;
+}
+h1 {
+  color: #f84c00;
+  font-weight: bold;
+}
+
+.icon-fitur i {
+  color: #135587;
+}
+
+.btn {
+  background-color: #f84c00;
+  color: white;
+}
+
+.btn:hover {
+  background-color: #f84c00;
+  color: white;
+  transform: scale(1.1);
+} */
