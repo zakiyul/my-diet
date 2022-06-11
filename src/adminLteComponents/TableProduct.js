@@ -1,8 +1,32 @@
 import { useContext } from 'react';
+import axios from 'axios';
+import Swal from 'sweetalert2';
+import { FaTrash, FaPen } from 'react-icons/fa';
+
 import { ProductContext } from '../context/ProductContext';
 
 const TableComp = ({ data }) => {
-  const { handleShow } = useContext(ProductContext);
+  const { handleShow, handleShowEditProduct, setProductId } = useContext(ProductContext);
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios.delete(`http://localhost:8000/api/products/${id}`)
+        Swal.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success'
+        )
+      }
+    })
+  }
 
   return (
     <div className="card">
@@ -32,10 +56,14 @@ const TableComp = ({ data }) => {
                   <td>Rp. {d.harga}</td>
                   <td>{d.rating}</td>
                   <td>
-                      <img height='150px' src={`http://localhost:8000${d.image}`} alt={d.nama} />
+                      <img height='100px' src={`http://localhost:8000${d.image}`} alt={d.nama} />
                   </td>
                   <td>
-                    <button className="btn btn-primary">Update</button>
+                    <button className="btn btn-primary" onClick={() => {
+                        handleShowEditProduct()
+                        setProductId(d.id)
+                      }}><FaPen/></button>
+                    <button className="btn btn-danger ms-3" onClick={() => handleDelete(d.id)}><FaTrash/></button>
                   </td>
                 </tr>
               );

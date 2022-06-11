@@ -5,20 +5,19 @@ import { Modal } from 'react-bootstrap';
 import Navbar from "../adminLteComponents/Navbar";
 import MainSide from "../adminLteComponents/MainSide";
 import ContentHeader from "../adminLteComponents/ContentHeader";
-import TableComp from "../adminLteComponents/TableComp";
 import TableProduct from '../adminLteComponents/TableProduct';
 import FormAddProduct from '../adminLteComponents/FormAddProduct';
+import FormEditProduct from '../adminLteComponents/FormEditProduct';
 
 import { ProductContext } from '../context/ProductContext';
 
 
-const ItemPage = () => {
-  const { handleClose, showModalAddProduct} = useContext(ProductContext);
+const ProductPage = () => {
+  const { handleClose, handleCloseEditProduct, showModalAddProduct, showModalEditProduct} = useContext(ProductContext);
   const [items, setItems] = useState([]);
 
   const getItems = async () => {
-    const res = await axios.get('http://localhost:8000/api/products/')
-    console.log(res.data);
+    const res = await axios.get('http://localhost:8000/api/products/');
     setItems(res.data)
   }
 
@@ -31,6 +30,7 @@ const ItemPage = () => {
       <Navbar />
       <MainSide />
       <div className="content-wrapper">
+
         <Modal size='lg' show={showModalAddProduct} onHide={handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>Add New Product</Modal.Title>
@@ -44,6 +44,21 @@ const ItemPage = () => {
             </button>
           </Modal.Footer>
         </Modal>
+
+        <Modal size='lg' show={showModalEditProduct} onHide={handleCloseEditProduct}>
+          <Modal.Header closeButton>
+            <Modal.Title>Edit Product</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <FormEditProduct id={1}/>
+          </Modal.Body>
+          <Modal.Footer>
+            <button className='btn btn-secondary' onClick={handleCloseEditProduct}>
+              Close
+            </button>
+          </Modal.Footer>
+        </Modal>
+
         <ContentHeader title="Products Item" />
         <div className="content">
           <div className="container-fluid">
@@ -59,4 +74,4 @@ const ItemPage = () => {
   );
 };
 
-export default ItemPage;
+export default ProductPage;

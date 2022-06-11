@@ -1,12 +1,17 @@
 import React from "react";
 import axios from "axios";
+import { Link } from 'react-router-dom';
 
 import NavbarComp from "../components/NavbarComp";
 import CarouselComp from "../components/CarouselComp";
 import FooterComp from '../components/Footer';
+import BMIModal from '../components/BMIModal';
+
+import { ProductContext } from '../context/ProductContext';
 
 const HomePage = () => {
   const imgs = ["/jumbotron/1.png", "/jumbotron/2.png"];
+  const { handleShowBMI } = React.useContext(ProductContext)
 
   const getCaraPakai = async () => {
     const res = await axios.get("http://localhost:8000/api/cara-pakai/");
@@ -76,9 +81,9 @@ const HomePage = () => {
                   <p className="card-text">
                     Daftar produk-produk yang kami jual di MyDietDiary.
                   </p>
-                  <a href="https://facebook.com" className="btn" style={{ backgroundColor:'#f84c00', color: 'white'}}>
+                  <Link to="/produk" className="btn" style={{ backgroundColor:'#f84c00', color: 'white'}}>
                     Klik Disini
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -92,9 +97,9 @@ const HomePage = () => {
                   <p className="card-text">
                     Kumpulan artikel-artikel diet yang dapat membantu diet anda.
                   </p>
-                  <a href="https://facebook.com" className="btn" style={{ backgroundColor:'#f84c00', color: 'white'}}>
+                  <Link to="/artikel" className="btn" style={{ backgroundColor:'#f84c00', color: 'white'}}>
                     Klik Disini
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -108,15 +113,17 @@ const HomePage = () => {
                   <p className="card-text">
                     cek apakah berat badan Anda ideal atau tidak.
                   </p>
-                  <a href="https://facebook.com" className="btn" style={{ backgroundColor:'#f84c00', color: 'white'}}>
+                  <button className="btn" onClick={handleShowBMI} style={{ backgroundColor:'#f84c00', color: 'white'}}>
                     Klik Disini
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
+
+      <BMIModal/>
 
       <section id="about-us">
         <div className="container-fuild">

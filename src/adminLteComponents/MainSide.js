@@ -1,4 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
+import { FaNewspaper, FaBox, FaBorderAll } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const MainSide = () => {
@@ -21,7 +22,7 @@ const MainSide = () => {
             <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             {/* Add icons to the links using the .nav-icon class
             with font-awesome or any other icon font library */}
-            <li class="nav-item menu-open">
+            {/* <li class="nav-item menu-open">
                 <a class="nav-link active">
                     <i class="nav-icon fas fa-tachometer-alt"></i>
                     <p>
@@ -37,39 +38,31 @@ const MainSide = () => {
                     </Link>
                 </li>
                 </ul>
-            </li>
+            </li> */}
             <li className="nav-header">Master</li>
             <li className="nav-item">
-                <Link to="/admin/items" className="nav-link">
-                    <i className="nav-icon far fa-calendar-alt" />
+                <Link to="/admin" className='nav-link'>
+                    <FaBorderAll className='nav-icon' />
                     <p>
-                        Item
+                        Dashboard
+                    </p>
+                </Link>
+            </li>
+            <li className="nav-item">
+                <Link to="/admin/items" className="nav-link">
+                    <FaBox className='nav-icon' />
+                    <p>
+                        Product
                     </p>
                 </Link>
             </li>
             <li className="nav-item">
                 <Link to="/admin/cara-pakai" className="nav-link">
-                    <i className="nav-icon far fa-calendar-alt" />
+                    <FaNewspaper className='nav-icon'/>
                     <p>
-                        Cara Pakai
+                        Article
                     </p>
                 </Link>
-            </li>
-            <li className="nav-item">
-                <Link to="/admin/ingredients" className="nav-link">
-                    <i className="nav-icon far fa-calendar-alt" />
-                    <p>
-                        Ingredients
-                    </p>
-                </Link>
-            </li>
-            <li className="nav-item">
-                <a href="pages/gallery.html" className="nav-link">
-                <i className="nav-icon far fa-image" />
-                <p>
-                    Article
-                </p>
-                </a>
             </li>
             </ul>
         </nav>

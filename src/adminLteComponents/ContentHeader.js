@@ -12,7 +12,7 @@ const ContentHeader = ({title}) => {
               <li className="breadcrumb-item">
                 <Link to="/">Home</Link>
               </li>
-              <li className="breadcrumb-item active">Dashboard v1</li>
+              <li className="breadcrumb-item active">{title}</li>
             </ol>
           </div>
         </div>

@@ -1,4 +1,4 @@
-import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
+import { Navbar, Container, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const NavbarComp = () => {
@@ -27,7 +27,7 @@ const NavbarComp = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
             <Link to="/" className="nav-link">BERANDA</Link>
-            <Link to="/article" className="nav-link">ARTIKEL</Link>
+            <Link to="/artikel" className="nav-link">ARTIKEL</Link>
             <Link to="/produk" className='nav-link'>PRODUK</Link>
             <Link to="/analisis" className='nav-link'>ANALISIS</Link>
             <Link to="/admin" className='nav-link'>KONTAK</Link>

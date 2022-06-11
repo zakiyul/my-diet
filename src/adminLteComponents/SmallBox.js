@@ -9,7 +9,6 @@ const SmallBox = ({number, title, icon, color}) => {
                 <div className="icon">
                 <i className={`ion ion-${icon}`}></i>
             </div>
-            <a href="#" className="small-box-footer">More info <i className="fas fa-arrow-circle-right"></i></a>
         </div>
      );
 }

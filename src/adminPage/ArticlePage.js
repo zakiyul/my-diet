@@ -24,7 +24,7 @@ const ItemPage = () => {
       <Navbar />
       <MainSide />
       <div className="content-wrapper">
-        <ContentHeader title="Cara Pakai" />
+        <ContentHeader title="Article" />
         <div className="content">
           <div className="container-fluid">
               <div className="row">
