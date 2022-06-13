@@ -171,7 +171,7 @@ const BMIModal = () => {
 
   return (
     <>
-      <Modal size="md" show={showBMI} onHide={handleCloseBMI}>
+      <Modal size="lg" show={showBMI} onHide={handleCloseBMI}>
         <Modal.Header>
           <Modal.Title>BMI Kalkulator</Modal.Title>
         </Modal.Header>
