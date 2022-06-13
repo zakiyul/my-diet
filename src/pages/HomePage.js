@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
-import { Link } from 'react-router-dom';
-import {FaArrowRight} from 'react-icons/fa';
+import { Link } from "react-router-dom";
+import { FaArrowRight } from "react-icons/fa";
 
 import NavbarComp from "../components/NavbarComp";
 import CarouselComp from "../components/CarouselComp";
@@ -56,18 +56,18 @@ const HomePage = () => {
       <section id="our-fitur">
         <div className="container-fluid p-5">
           <h1 className="text-center mb-5 text-orange">LAYANAN KAMI</h1>
-          <div className="row justify-content-center">
+          <div className="row justify-content-center ">
             <div className="col-md-4">
               <div className="card text-center" style={{ width: "18rem", borderRadius: 8 }}>
                 <div className="icon-fitur p-4">
                   <i className="fa fa-box fa-5x" />
                 </div>
                 <div className="card-body">
-                  <h5 className="card-title text-center w-100" style={{fontWeight:'bold'}}>Produk Diet</h5>
-                  <p className="card-text">
-                    Daftar produk-produk yang kami jual di MyDietDiary.
-                  </p>
-                  <Link to="/produk" className="btn" style={{ backgroundColor:'#f84c00', color: 'white'}}>
+                  <h5 className="card-title text-center w-100" style={{ fontWeight: "bold" }}>
+                    Produk Diet
+                  </h5>
+                  <p className="card-text">Daftar produk-produk yang kami jual di MyDietDiary.</p>
+                  <Link to="/produk" className="btn" style={{ backgroundColor: "#f84c00", color: "white" }}>
                     <FaArrowRight />
                   </Link>
                 </div>
@@ -79,11 +79,11 @@ const HomePage = () => {
                   <i className="fa fa-newspaper fa-5x" />
                 </div>
                 <div className="card-body">
-                  <h5 className="card-title text-center w-100" style={{fontWeight:'bold'}}>Artikel</h5>
-                  <p className="card-text">
-                    Kumpulan artikel-artikel diet yang dapat membantu diet anda.
-                  </p>
-                  <Link to="/artikel" className="btn" style={{ backgroundColor:'#f84c00', color: 'white'}}>
+                  <h5 className="card-title text-center w-100" style={{ fontWeight: "bold" }}>
+                    Artikel
+                  </h5>
+                  <p className="card-text">Kumpulan artikel-artikel diet yang dapat membantu diet anda.</p>
+                  <Link to="/artikel" className="btn" style={{ backgroundColor: "#f84c00", color: "white" }}>
                     Klik Disini
                   </Link>
                 </div>
@@ -95,11 +95,11 @@ const HomePage = () => {
                   <i className="fa fa-calculator fa-5x" />
                 </div>
                 <div className="card-body">
-                  <h5 className="card-title text-center w-100" style={{fontWeight:'bold'}}>BMI</h5>
-                  <p className="card-text">
-                    cek apakah berat badan Anda ideal atau tidak.
-                  </p>
-                  <button className="btn" onClick={handleShowBMI} style={{ backgroundColor:'#f84c00', color: 'white'}}>
+                  <h5 className="card-title text-center w-100" style={{ fontWeight: "bold" }}>
+                    BMI
+                  </h5>
+                  <p className="card-text">cek apakah berat badan Anda ideal atau tidak.</p>
+                  <button className="btn" onClick={handleShowBMI} style={{ backgroundColor: "#f84c00", color: "white" }}>
                     Klik Disini
                   </button>
                 </div>
@@ -114,7 +114,7 @@ const HomePage = () => {
       <section id="about-us">
         <div className="container-fuild">
           <div className="container p-5">
-            <h1 className="text-center mb-5">TENTANG KAMI</h1>
+            <h1 className="text-center mb-5 text-orange">TENTANG KAMI</h1>
             <div className="row">
               <div className="col">
                 <h1 style={{ color: "#656565" }}>MyDietDiary</h1>
