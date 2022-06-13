@@ -5,14 +5,14 @@ import {FaArrowRight} from 'react-icons/fa';
 
 import NavbarComp from "../components/NavbarComp";
 import CarouselComp from "../components/CarouselComp";
-import FooterComp from '../components/Footer';
-import BMIModal from '../components/BMIModal';
+import FooterComp from "../components/Footer";
+import BMIModal from "../components/BMIModal";
 
-import { ProductContext } from '../context/ProductContext';
+import { ProductContext } from "../context/ProductContext";
 
 const HomePage = () => {
   const imgs = ["/jumbotron/1.png", "/jumbotron/2.png"];
-  const { handleShowBMI } = React.useContext(ProductContext)
+  const { handleShowBMI } = React.useContext(ProductContext);
 
   const getCaraPakai = async () => {
     const res = await axios.get("http://localhost:8000/api/cara-pakai/");
@@ -32,26 +32,15 @@ const HomePage = () => {
           <div className="container p-5">
             <div className="row">
               <div className="col pt-5">
-                <h1>Kenapa Harus Diet?</h1>
+                <h1 className="text-orange">Kenapa Harus Diet?</h1>
                 <p className="text-justify">
-                  Diet pada dasarnya adalah pola makan, yang cara dan jenis
-                  makanannya diatur. Tujuannya adalah untuk menjaga kesehatan
-                  tubuh secara keseluruhan. Selain itu, diet juga bertujuan
-                  untuk mencapai atau menjaga berat badan yang terkontrol. Meski
-                  begitu, tidak semua diet dilakukan untuk menurunkan berat
-                  badan, beberapa orang melakukan diet atas dasar anjuran dokter
-                  karena mengidap penyakit tertentu yang memaksanya untuk
-                  mengatur segala nutrisi yang akan masuk ke tubuhnya. Oleh
-                  karena itu, diet dan nutrisi adalah suatu kesatuan yang
-                  diperlukan tubuh dalam porsi seimbang.
+                  Diet pada dasarnya adalah pola makan, yang cara dan jenis makanannya diatur. Tujuannya adalah untuk menjaga kesehatan tubuh secara keseluruhan. Selain itu, diet juga bertujuan untuk mencapai atau menjaga berat badan yang
+                  terkontrol. Meski begitu, tidak semua diet dilakukan untuk menurunkan berat badan, beberapa orang melakukan diet atas dasar anjuran dokter karena mengidap penyakit tertentu yang memaksanya untuk mengatur segala nutrisi
+                  yang akan masuk ke tubuhnya. Oleh karena itu, diet dan nutrisi adalah suatu kesatuan yang diperlukan tubuh dalam porsi seimbang.
                 </p>
               </div>
               <div className="col">
-                <img
-                  src="/imgs/kenapa-harus-diet.png"
-                  alt="..."
-                  className="img-fluid"
-                />
+                <img src="/imgs/kenapa-harus-diet.png" alt="..." className="img-fluid" />
               </div>
             </div>
           </div>
@@ -60,17 +49,13 @@ const HomePage = () => {
 
       <section id="data-diet">
         <div className="container-fuild">
-          <img
-            src="/imgs/statistik-diet.png"
-            width="100%"
-            alt="statistik diet"
-          />
+          <img src="/imgs/statistik-diet.png" width="100%" alt="statistik diet" />
         </div>
       </section>
 
       <section id="our-fitur">
         <div className="container-fluid p-5">
-          <h1 className="text-center mb-5">LAYANAN KAMI</h1>
+          <h1 className="text-center mb-5 text-orange">LAYANAN KAMI</h1>
           <div className="row justify-content-center">
             <div className="col-md-4">
               <div className="card text-center" style={{ width: "18rem", borderRadius: 8 }}>
@@ -124,7 +109,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      <BMIModal/>
+      <BMIModal />
 
       <section id="about-us">
         <div className="container-fuild">
@@ -134,20 +119,10 @@ const HomePage = () => {
               <div className="col">
                 <h1 style={{ color: "#656565" }}>MyDietDiary</h1>
                 <p className="text-justify">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Lobortis pellentesque sed faucibus nam sed ultricies morbi.
-                  Lorem suspendisse eget consequat augue semper sed consectetur
-                  dictum mauris. Molestie tellus a pharetra semper id. Leo nisi,
-                  adipiscing nisi, vitae. Lacus sed bibendum viverra nec, urna.
-                  Posuere consectetur quis sit lobortis mauris commodo. Lorem
-                  volutpat eu praesent lacus. Nunc arcu justo, nibh nibh sed
-                  sed. Mi massa magna morbi nibh ac pulvinar amet erat dis.
-                  Morbi vestibulum ornare consequat non et faucibus sit tellus
-                  potenti. In sed pulvinar lectus placerat lobortis turpis
-                  blandit nec semper. Nullam duis nisi, duis pretium placerat
-                  facilisis pellentesque nulla augue. Tempor adipiscing augue
-                  donec diam nec enim, nunc. Ornare egestas etiam venenatis
-                  tellus iaculis ullamcorper arcu.
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lobortis pellentesque sed faucibus nam sed ultricies morbi. Lorem suspendisse eget consequat augue semper sed consectetur dictum mauris. Molestie tellus a pharetra
+                  semper id. Leo nisi, adipiscing nisi, vitae. Lacus sed bibendum viverra nec, urna. Posuere consectetur quis sit lobortis mauris commodo. Lorem volutpat eu praesent lacus. Nunc arcu justo, nibh nibh sed sed. Mi massa magna
+                  morbi nibh ac pulvinar amet erat dis. Morbi vestibulum ornare consequat non et faucibus sit tellus potenti. In sed pulvinar lectus placerat lobortis turpis blandit nec semper. Nullam duis nisi, duis pretium placerat
+                  facilisis pellentesque nulla augue. Tempor adipiscing augue donec diam nec enim, nunc. Ornare egestas etiam venenatis tellus iaculis ullamcorper arcu.
                 </p>
               </div>
               <div className="col">
@@ -167,7 +142,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      <FooterComp/>
+      <FooterComp />
     </>
   );
 };
