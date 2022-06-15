@@ -2,6 +2,9 @@ const BMI = 32.1;
 const kondisi = document.getElementById("kondisi");
 const risiko = document.getElementById("risiko");
 const saran = document.getElementById("saran");
+const bmiElement = document.getElementById("bmi");
+
+bmiElement.innerText = BMI;
 
 const textRisiko = () => {
   if (BMI < 18.5) {
