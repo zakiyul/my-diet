@@ -30,76 +30,100 @@
         integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/emn178/chartjs-plugin-labels/src/chartjs-plugin-labels.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
 
     <script>
-        const data1 = {
-            labels: [
-                'Non-Overweight/obesity (BMI<25 kg/m2)',
-                'Overweight (BMI 25-27 kg/m2)',
-                'Obese (BMI>27 kg/m2)',
-            ],
-            datasets: [{
-                label: 'Obesitas di Indonesia',
-                data: [81, 9, 11],
-                backgroundColor: [
-                    'rgb(255, 99, 132)',
-                    'rgb(54, 162, 235)',
-                    'rgb(255, 205, 86)'
-                ],
-                hoverOffset: 15
-            }],
-        };
-
-        const data2 = {
-            labels: [
-                'Non-Overweight/obesity (BMI<25 kg/m2)',
-                'Overweight (BMI 25-27 kg/m2)',
-                'Obese (BMI>27 kg/m2)',
-            ],
-            datasets: [{
-                label: 'Obesitas di Indonesia',
-                data: [74, 12, 15],
-                backgroundColor: [
-                    'rgb(255, 99, 132)',
-                    'rgb(54, 162, 235)',
-                    'rgb(255, 205, 86)'
-                ],
-                hoverOffset: 15
-            }],
-        };
-
-        const data3 = {
-            labels: [
-                'Non-Overweight/obesity (BMI<25 kg/m2)',
-                'Overweight (BMI 25-27 kg/m2)',
-                'Obese (BMI>27 kg/m2)',
-            ],
-            datasets: [{
-                label: 'Obesitas di Indonesia',
-                data: [65, 14, 22],
-                backgroundColor: [
-                    'rgb(255, 99, 132)',
-                    'rgb(54, 162, 235)',
-                    'rgb(255, 205, 86)'
-                ],
-                hoverOffset: 15
-            }],
-        };
-
         const config1 = {
             type: 'doughnut',
-            data: data1,
+            data: {
+                labels: ['Non-Overweight/obesity (BMI<25 kg/m2)',
+                    'Overweight (BMI 25-27 kg/m2)',
+                    'Obese (BMI>27 kg/m2)',],
+                datasets: [{
+                    data: [81, 9, 11],
+                    backgroundColor: [
+                        'rgb(255, 99, 132)',
+                        'rgb(54, 162, 235)',
+                        'rgb(255, 205, 86)'
+                    ],
+                    hoverOffset: 15
+                }],
+            },
+            options: {
+                plugins: {
+                    datalabels: {
+                        formatter: function (value, context) {
+                            return context.chart.data.labels[context.dataIndex];
+                        }
+                    },
+                    title: {
+                        display: true,
+                        text: '2007'
+                    }
+                }
+            }
         };
 
         const config2 = {
             type: 'doughnut',
-            data: data2,
+            data: {
+                labels: ['Non-Overweight/obesity (BMI<25 kg/m2)',
+                    'Overweight (BMI 25-27 kg/m2)',
+                    'Obese (BMI>27 kg/m2)',],
+                datasets: [{
+                    data: [74, 12, 15],
+                    backgroundColor: [
+                        'rgb(255, 99, 132)',
+                        'rgb(54, 162, 235)',
+                        'rgb(255, 205, 86)'
+                    ],
+                    hoverOffset: 15
+                }],
+            },
+            options: {
+                plugins: {
+                    datalabels: {
+                        formatter: function (value, context) {
+                            return context.chart.data.labels[context.dataIndex];
+                        }
+                    },
+                    title: {
+                        display: true,
+                        text: '2013'
+                    }
+                }
+            }
         };
 
         const config3 = {
             type: 'doughnut',
-            data: data3,
+            data: {
+                labels: ['Non-Overweight/obesity (BMI<25 kg/m2)',
+                    'Overweight (BMI 25-27 kg/m2)',
+                    'Obese (BMI>27 kg/m2)',],
+                datasets: [{
+                    data: [65, 14, 22],
+                    backgroundColor: [
+                        'rgb(255, 99, 132)',
+                        'rgb(54, 162, 235)',
+                        'rgb(255, 205, 86)'
+                    ],
+                    hoverOffset: 15
+                }],
+            },
+            options: {
+                plugins: {
+                    datalabels: {
+                        formatter: function (value, context) {
+                            return context.chart.data.labels[context.dataIndex];
+                        }
+                    },
+                    title: {
+                        display: true,
+                        text: '2018'
+                    }
+                }
+            }
         };
 
         var myChart1 = new Chart(
