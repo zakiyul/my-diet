@@ -42,25 +42,18 @@
   color: #f84c00;
   font-weight: bold;
 }
-/* #about-us iframe {
-  border: 2px solid #0f8c8a;
-}
-h1 {
-  color: #f84c00;
-  font-weight: bold;
+.btn-service {
+  border-radius: 16px;
 }
 
-.icon-fitur i {
-  color: #135587;
+iframe.maps {
+  width: 500px;
+  height: 350px;
 }
 
-.btn {
-  background-color: #f84c00;
-  color: white;
+@media only screen and (max-width: 600px) {
+  iframe.maps {
+    width: 300px;
+    height: 150px;
+  }
 }
-
-.btn:hover {
-  background-color: #f84c00;
-  color: white;
-  transform: scale(1.1);
-} */
