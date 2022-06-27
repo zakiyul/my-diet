@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import numeral from 'numeral';
 
 const warnaBintang = '#FFB715';
 
@@ -14,14 +15,14 @@ const Star = ({color, banyak}) => {
     )
 };
 
-const CardComp = () => {
+const CardComp = ({ data }) => {
     return ( 
         <div className="zk-card">
-            <img src="https://i.ibb.co/K6FFt7s/obat-1.png" alt="obat kurus" />
+            <img src={`http://localhost:8000${data.image}`} alt={data.nam} />
             <div className="zk-card-body">
-                <h3><Link to="/">Obat diet paling keren</Link></h3>
-                <strong>Rp. 234.000</strong> <br />
-                <Star banyak={4} color={warnaBintang} />
+                <h3><Link to="/">{data.nama}</Link></h3>
+                <strong>Rp. {numeral(data.harga).format('0,0')}</strong> <br />
+                <Star banyak={data.rating} color={warnaBintang} />
             </div>
         </div>
      );

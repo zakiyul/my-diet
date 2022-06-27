@@ -10,6 +10,7 @@ import ProductPageAdmin from './adminPage/ProductPage';
 import ArticlePage from './adminPage/ArticlePage';
 
 import './App.css';
+import Analysis from './pages/Analysis';
 
 const App = () => {
   return (
@@ -20,10 +21,11 @@ const App = () => {
               <Route path="/" element={<HomePage/>} />
               <Route path="produk" element={<ProductPage/>} />
               <Route path="artikel" element={<Article/>} />
+              <Route path="analisis" element={<Analysis/>} />
 
               <Route path="admin" element={<Dashboard/>}  />
-              <Route path="admin/items" element={<ProductPageAdmin />} />
-              <Route path="admin/cara-pakai" element={<ArticlePage/>} />
+              <Route path="admin/product" element={<ProductPageAdmin />} />
+              <Route path="admin/article" element={<ArticlePage/>} />
             </Routes>
           </div> 
         </RecoilRoot>

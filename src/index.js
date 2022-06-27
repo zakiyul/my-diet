@@ -8,11 +8,15 @@ import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 
 import { ProductProvider } from './context/ProductContext';
+import { ArticleProvider } from './context/ArticleContext';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <ProductProvider> 
-      <App />
+    <ProductProvider>
+      <ArticleProvider>
+        <App />
+      </ArticleProvider>
     </ProductProvider>
   </React.StrictMode>
 );
