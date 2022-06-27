@@ -24,29 +24,6 @@ const FormAddProduct = (props) => {
         const file = e.target.files[0];
         setProductImg(file)
     }
-    // const handleSubmit = e => {
-    //     e.preventDefault();
-    //     let payload = new FormData();
-
-    //     Object.entries(product).forEach(([key, value]) => {
-    //         payload.set(key, value)
-    //     })
-    //     payload.append("image", productImg);
-        
-    //     axios({
-    //         method: 'POST',
-    //         url: 'http://localhost:8000/api/products/',
-    //         headers: {},
-    //         data: payload
-    //     })
-    //      .then((res) => {
-    //          console.log(res)
-    //      })
-    //      .catch((e) => {
-    //          console.log(e)
-    //      })
-    //     console.log(payload)
-    // }
     const handleSubmit = e => {
         e.preventDefault();
         let payload = new FormData();
@@ -70,7 +47,8 @@ const FormAddProduct = (props) => {
     const getProduct = async () => {
         const res = await axios.get(`http://localhost:8000/api/products/${productId}`);
         setProduct(res.data);
-        // setProductId(null);
+        console.log(product.deskripsi)
+        setProductId(null);
     }
 
     useEffect(() => {

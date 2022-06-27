@@ -1,7 +1,14 @@
 import axios from "axios";
 import { useState } from "react";
+<<<<<<< HEAD
+import Navbar from '../components/NavbarComp';
+import FooterComp from '../components/Footer';
+=======
+import { useNavigate } from "react-router-dom";
+>>>>>>> 25c7635f7b6f431ba463a32730df7161974f9990
 
 const Analysis =() => {
+    const navigate = useNavigate();
     const [formValue, setValue] = useState({
         'username' : '',
         'gender' : '',
@@ -39,6 +46,7 @@ const Analysis =() => {
             }
         }).then(response => {
             console.log(response.data)
+            navigate('/hasil-analisis',{state : response.data});
         }).catch(err => {
             console.log(err)
         });
@@ -75,7 +83,8 @@ const Analysis =() => {
 
     return(
         <>
-        <div className="container">
+        <Navbar />
+        <div className="container my-4">
             <h1>Analisis Diri</h1>
             <form onSubmit={saveAction}>
                 <div class="mb-3">
@@ -353,6 +362,7 @@ const Analysis =() => {
                 </div>
             </form>
         </div>
+        <FooterComp />
         </>
     );
 }

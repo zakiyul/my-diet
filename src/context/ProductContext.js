@@ -11,7 +11,7 @@ export const ProductProvider = (props) => {
     const [productId, setProductId] = useState(null);
 
     const getProducts = async () => {
-        const response = await axios.get('http://localhost:8000/api/items/');
+        const response = await axios.get('http://localhost:8000/api/products/');
         setProducts(response.data)
     };
 
