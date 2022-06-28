@@ -5,15 +5,16 @@ import Navbar from '../components/NavbarComp';
 import FooterComp from '../components/Footer';
 =======
 import { useNavigate } from "react-router-dom";
+<<<<<<< HEAD
+import NavbarComp from '../components/NavbarComp';
+import FooterComp from "../components/Footer";
+=======
 >>>>>>> 25c7635f7b6f431ba463a32730df7161974f9990
+>>>>>>> a8e29576d3ec634af2334c0f1c2f8d8841e09be9
 
-const Analysis =() => {
+const AnalysisNew =() => {
     const navigate = useNavigate();
     const [formValue, setValue] = useState({
-        'username' : '',
-        'gender' : '',
-        'bodyWeight' : '',
-        'bodyHeight' : '',
         'Q1' : 'no',
         'Q2' : 'no',
         'Q3' : 'no',
@@ -25,6 +26,13 @@ const Analysis =() => {
         'Q9' : 'no',
         'Q10' : 'no',
     });
+
+    const [formInput, setInput] = useState({
+        'username' : '',
+        'gender' : '',
+        'bodyWeight' : '',
+        'bodyHeight' : '',
+    })
 
     const saveAction = (e) => {
         e.preventDefault();
@@ -39,23 +47,28 @@ const Analysis =() => {
         const rule_request = rule.join('AND');
         console.log(rule_request);
 
+        
+
         axios.get('http://localhost:5000/api/analysis/'+ rule_request,
         {
             params: {
                 rule_request
             }
         }).then(response => {
-            console.log(response.data)
-            navigate('/hasil-analisis',{state : response.data});
+            let resAnalysis = response.data.data;
+            resAnalysis.push(formInput);
+            navigate('/hasil-analisis',{state : resAnalysis});
         }).catch(err => {
             console.log(err)
         });
+        
+        
     }
 
     const handleInput = (e) => {
         const name = e.target.name;
         const value = e.target.value;
-        setValue({...formValue, [name]:value});
+        setInput({...formInput, [name]:value});
     }
 
     const handleRadio = (e) => {
@@ -64,9 +77,9 @@ const Analysis =() => {
 
         console.log(id);
         if(id === 'male-gender'){
-            setValue({...formValue, [name] : 'Laki-laki'});
+            setInput({...formInput, [name] : 'Laki-laki'});
         }else if(id === 'female-gender'){
-            setValue({...formValue, [name] : 'Perempuan'})
+            setInput({...formInput, [name] : 'Perempuan'})
         }
     }
 
@@ -83,8 +96,13 @@ const Analysis =() => {
 
     return(
         <>
+<<<<<<< HEAD
+        <NavbarComp/>
+        <div className="container-sm p-5">
+=======
         <Navbar />
         <div className="container my-4">
+>>>>>>> a8e29576d3ec634af2334c0f1c2f8d8841e09be9
             <h1>Analisis Diri</h1>
             <form onSubmit={saveAction}>
                 <div class="mb-3">
@@ -99,6 +117,9 @@ const Analysis =() => {
                 </div>
                 
                 <div class="form-check">
+                    <label class="form-check-label" for="male-gender">
+                    Laki-laki
+                    </label>
                     <input 
                         class="form-check-input" 
                         type="radio" 
@@ -106,12 +127,12 @@ const Analysis =() => {
                         id="male-gender" 
                         onChange={handleRadio}
                     />
-                    <label class="form-check-label" for="male-gender">
-                    Laki-laki
-                    </label>
                 </div>
         
                 <div class="form-check">
+                    <label class="form-check-label" for="female-gender">
+                    Perempuan
+                    </label>
                     <input 
                         class="form-check-input" 
                         type="radio" 
@@ -119,9 +140,6 @@ const Analysis =() => {
                         id="female-gender" 
                         onChange={handleRadio}
                     />
-                    <label class="form-check-label" for="female-gender">
-                    Perempuan
-                    </label>
                 </div>
 
                 <div class="mb-3">
@@ -362,9 +380,13 @@ const Analysis =() => {
                 </div>
             </form>
         </div>
+<<<<<<< HEAD
+        <FooterComp/>
+=======
         <FooterComp />
+>>>>>>> a8e29576d3ec634af2334c0f1c2f8d8841e09be9
         </>
     );
 }
 
-export default Analysis;
+export default AnalysisNew;
