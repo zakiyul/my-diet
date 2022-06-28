@@ -1,14 +1,12 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import NavbarComp from '../components/NavbarComp';
+import FooterComp from "../components/Footer";
 
-const Analysis =() => {
+const AnalysisNew =() => {
     const navigate = useNavigate();
     const [formValue, setValue] = useState({
-        'username' : '',
-        'gender' : '',
-        'bodyWeight' : '',
-        'bodyHeight' : '',
         'Q1' : 'no',
         'Q2' : 'no',
         'Q3' : 'no',
@@ -20,6 +18,13 @@ const Analysis =() => {
         'Q9' : 'no',
         'Q10' : 'no',
     });
+
+    const [formInput, setInput] = useState({
+        'username' : '',
+        'gender' : '',
+        'bodyWeight' : '',
+        'bodyHeight' : '',
+    })
 
     const saveAction = (e) => {
         e.preventDefault();
@@ -34,23 +39,28 @@ const Analysis =() => {
         const rule_request = rule.join('AND');
         console.log(rule_request);
 
+        
+
         axios.get('http://localhost:5000/api/analysis/'+ rule_request,
         {
             params: {
                 rule_request
             }
         }).then(response => {
-            console.log(response.data)
-            navigate('/hasil-analisis',{state : response.data});
+            let resAnalysis = response.data.data;
+            resAnalysis.push(formInput);
+            navigate('/hasil-analisis',{state : resAnalysis});
         }).catch(err => {
             console.log(err)
         });
+        
+        
     }
 
     const handleInput = (e) => {
         const name = e.target.name;
         const value = e.target.value;
-        setValue({...formValue, [name]:value});
+        setInput({...formInput, [name]:value});
     }
 
     const handleRadio = (e) => {
@@ -59,9 +69,9 @@ const Analysis =() => {
 
         console.log(id);
         if(id === 'male-gender'){
-            setValue({...formValue, [name] : 'Laki-laki'});
+            setInput({...formInput, [name] : 'Laki-laki'});
         }else if(id === 'female-gender'){
-            setValue({...formValue, [name] : 'Perempuan'})
+            setInput({...formInput, [name] : 'Perempuan'})
         }
     }
 
@@ -78,7 +88,8 @@ const Analysis =() => {
 
     return(
         <>
-        <div className="container">
+        <NavbarComp/>
+        <div className="container-sm p-5">
             <h1>Analisis Diri</h1>
             <form onSubmit={saveAction}>
                 <div class="mb-3">
@@ -93,6 +104,9 @@ const Analysis =() => {
                 </div>
                 
                 <div class="form-check">
+                    <label class="form-check-label" for="male-gender">
+                    Laki-laki
+                    </label>
                     <input 
                         class="form-check-input" 
                         type="radio" 
@@ -100,12 +114,12 @@ const Analysis =() => {
                         id="male-gender" 
                         onChange={handleRadio}
                     />
-                    <label class="form-check-label" for="male-gender">
-                    Laki-laki
-                    </label>
                 </div>
         
                 <div class="form-check">
+                    <label class="form-check-label" for="female-gender">
+                    Perempuan
+                    </label>
                     <input 
                         class="form-check-input" 
                         type="radio" 
@@ -113,9 +127,6 @@ const Analysis =() => {
                         id="female-gender" 
                         onChange={handleRadio}
                     />
-                    <label class="form-check-label" for="female-gender">
-                    Perempuan
-                    </label>
                 </div>
 
                 <div class="mb-3">
@@ -356,8 +367,9 @@ const Analysis =() => {
                 </div>
             </form>
         </div>
+        <FooterComp/>
         </>
     );
 }
 
-export default Analysis;
+export default AnalysisNew;
