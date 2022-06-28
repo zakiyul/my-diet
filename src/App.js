@@ -26,8 +26,8 @@ const App = () => {
               <Route path="hasil-analisis" element={<ResultAnalysis/>} />
 
               <Route path="admin" element={<Dashboard/>}  />
-              <Route path="admin/items" element={<ProductPageAdmin />} />
-              <Route path="admin/cara-pakai" element={<ArticlePage/>} />
+              <Route path="admin/product" element={<ProductPageAdmin />} />
+              <Route path="admin/article" element={<ArticlePage/>} />
             </Routes>
           </div> 
         </RecoilRoot>

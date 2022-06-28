@@ -49,7 +49,7 @@ const MainSide = () => {
                 </Link>
             </li>
             <li className="nav-item">
-                <Link to="/admin/items" className="nav-link">
+                <Link to="/admin/product" className="nav-link">
                     <FaBox className='nav-icon' />
                     <p>
                         Product
@@ -57,7 +57,7 @@ const MainSide = () => {
                 </Link>
             </li>
             <li className="nav-item">
-                <Link to="/admin/cara-pakai" className="nav-link">
+                <Link to="/admin/article" className="nav-link">
                     <FaNewspaper className='nav-icon'/>
                     <p>
                         Article

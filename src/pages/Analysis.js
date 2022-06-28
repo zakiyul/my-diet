@@ -1,8 +1,16 @@
 import axios from "axios";
 import { useState } from "react";
+<<<<<<< HEAD
+import Navbar from '../components/NavbarComp';
+import FooterComp from '../components/Footer';
+=======
 import { useNavigate } from "react-router-dom";
+<<<<<<< HEAD
 import NavbarComp from '../components/NavbarComp';
 import FooterComp from "../components/Footer";
+=======
+>>>>>>> 25c7635f7b6f431ba463a32730df7161974f9990
+>>>>>>> a8e29576d3ec634af2334c0f1c2f8d8841e09be9
 
 const AnalysisNew =() => {
     const navigate = useNavigate();
@@ -88,8 +96,13 @@ const AnalysisNew =() => {
 
     return(
         <>
+<<<<<<< HEAD
         <NavbarComp/>
         <div className="container-sm p-5">
+=======
+        <Navbar />
+        <div className="container my-4">
+>>>>>>> a8e29576d3ec634af2334c0f1c2f8d8841e09be9
             <h1>Analisis Diri</h1>
             <form onSubmit={saveAction}>
                 <div class="mb-3">
@@ -367,7 +380,11 @@ const AnalysisNew =() => {
                 </div>
             </form>
         </div>
+<<<<<<< HEAD
         <FooterComp/>
+=======
+        <FooterComp />
+>>>>>>> a8e29576d3ec634af2334c0f1c2f8d8841e09be9
         </>
     );
 }
