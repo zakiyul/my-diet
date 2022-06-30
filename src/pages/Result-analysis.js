@@ -1,14 +1,23 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import NavbarComp from "../components/NavbarComp";
+import FooterComp from "../components/Footer";
 
 const ResultAnalysis = ()  => {
     const location = useLocation();
-    const resultAnalysis = location.state.data;
+    const resultAnalysis = location.state[0];
+    const userData = location.state[1];
     const [dietResult, setDiet] = useState([]);
+    const [bmi, setBmi] = useState();
+    const [bbIdeal, setBbIdeal] = useState();
+    const [calory, setCalory] = useState();
 
     useEffect(() => {
-        getProducts(resultAnalysis[0].result);
+        getProducts(resultAnalysis.result);
+        countBMI();
+        countBbIdeal();
+        countCaloryNeed();
     }, []);
  
     const getProducts = async (kd_result) => {
@@ -21,8 +30,35 @@ const ResultAnalysis = ()  => {
         setDiet(response.data.data);
     }
 
-    console.log(dietResult);
+    const countBMI = () => {
+        const height = userData.bodyHeight/100;
+        let resultBmi = userData.bodyWeight/(height * height);
+        setBmi(resultBmi);
+    }
+
+    const countBbIdeal = () => {
+        if(userData.gender === 'Laki-laki'){
+            const resultBbIdeal = (userData.bodyHeight-100) - ((userData.bodyHeight-100)*0.10);
+            setBbIdeal(resultBbIdeal);
+        }else if(userData.gender === 'Perempuan'){
+            const resultBbIdeal = (userData.bodyHeight-100) - ((userData.bodyHeight-100)*0.15);
+            setBbIdeal(resultBbIdeal);
+        }
+    }
+
+    const countCaloryNeed = () => {
+        if(userData.gender === 'Laki-laki'){
+            const resultBbIdeal = (88.4 + 13.4 * userData.bodyWeight) + (4,8 * userData.bodyHeight) - (5.68 * userData.age);
+            setCalory(resultBbIdeal);
+        }else if(userData.gender === 'Perempuan'){
+            const resultBbIdeal =  (44.,6 + 9.25 * userData.bodyWeight) + (3.10 * userData.bodyHeight) - (4.33 * userData.age);
+            setCalory(resultBbIdeal);
+        }
+    }
+
     return(
+        <>
+        <NavbarComp />
         <div className="container">
             <h1>Analisis</h1>
 
@@ -39,7 +75,7 @@ const ResultAnalysis = ()  => {
                             Nama
                         </div>
                         <div className="col">
-                            data
+                            {userData.username}
                         </div>
                     </div>
 
@@ -48,7 +84,7 @@ const ResultAnalysis = ()  => {
                             Jenis Kelamin
                         </div>
                         <div className="col">
-                            data
+                            {userData.gender}
                         </div>
                     </div>
 
@@ -57,7 +93,7 @@ const ResultAnalysis = ()  => {
                             Umur
                         </div>
                         <div className="col">
-                            data
+                            {userData.age} tahun
                         </div>
                     </div>
 
@@ -66,7 +102,7 @@ const ResultAnalysis = ()  => {
                             Berat Badan
                         </div>
                         <div className="col">
-                            data
+                            {userData.bodyWeight} kg
                         </div>
                     </div>
 
@@ -75,7 +111,7 @@ const ResultAnalysis = ()  => {
                             Tinggi Badan
                         </div>
                         <div className="col">
-                            data
+                            {userData.bodyHeight} cm
                         </div>
                     </div>
                     
@@ -84,7 +120,7 @@ const ResultAnalysis = ()  => {
                             BB Ideal
                         </div>
                         <div className="col">
-                            data
+                            {bbIdeal} kg
                         </div>
                     </div>
 
@@ -93,7 +129,7 @@ const ResultAnalysis = ()  => {
                             BMI
                         </div>
                         <div className="col">
-                            data
+                            {bmi}
                         </div>
                     </div>
 
@@ -102,7 +138,7 @@ const ResultAnalysis = ()  => {
                             Kebutuhan kalori
                         </div>
                         <div className="col">
-                            data
+                            {calory} kal
                         </div>
                     </div>
                 </div>
@@ -122,6 +158,8 @@ const ResultAnalysis = ()  => {
                 )) }
             </div>
         </div>
+        <FooterComp />
+        </>
     );
 }
 
