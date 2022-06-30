@@ -1,13 +1,17 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
+import { useContext } from 'react';
 import { FaNewspaper, FaBox, FaBorderAll } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
+import Logo from '../logo.png';
 
 const MainSide = () => {
+    const { user } = useContext(AuthContext);
     return ( 
         <aside className="main-sidebar sidebar-dark-primary elevation-4">
         <a href="index3.html" className="brand-link">
-            <img src="https://pbs.twimg.com/profile_images/1405160563072638978/j5QQXXn__400x400.jpg" alt="AdminLTE Logo" className="brand-image img-circle elevation-3" style={{opacity: '.8'}} />
-            <span className="brand-text font-weight-light">MyDietDiary</span>
+            <img src={Logo} alt="AdminLTE Logo" className="brand-image img-circle elevation-3" style={{opacity: '.8'}} />
+            <span className="brand-text font-weight-light" style={{ textDecoration: 'none' }}>My DietDiary</span>
         </a>
         <div className="sidebar">
         <div className="user-panel mt-3 pb-3 mb-3 d-flex">
@@ -15,7 +19,7 @@ const MainSide = () => {
                 <img src="https://pbs.twimg.com/profile_images/1405160563072638978/j5QQXXn__400x400.jpg" className="img-circle elevation-2" alt="kucing" />
             </div>
             <div className="info">
-                <Link to="/" target="_blank" className='d-block'>Kocheng oren</Link>
+                <Link to="/" target="_blank" className='d-block' style={{ textDecoration: 'none' }}>{ user && user.username }</Link>
             </div>
         </div>
         <nav className="mt-2">

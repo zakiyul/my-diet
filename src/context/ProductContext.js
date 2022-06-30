@@ -11,7 +11,7 @@ export const ProductProvider = (props) => {
     const [productId, setProductId] = useState(null);
 
     const getProducts = async () => {
-        const response = await axios.get('http://localhost:8000/api/products/');
+        const response = await axios.get('https://zakiulfikri.pythonanywhere.com/api/products/');
         setProducts(response.data)
     };
 
@@ -36,6 +36,7 @@ export const ProductProvider = (props) => {
             showModalEditProduct,
             showBMI,
             productId,
+            setProducts,
             setProductId,
             handleClose,
             handleShow,

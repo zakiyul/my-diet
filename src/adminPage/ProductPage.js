@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { Modal } from 'react-bootstrap';
+import { Navigate } from 'react-router-dom';
 
 import Navbar from "../adminLteComponents/Navbar";
 import MainSide from "../adminLteComponents/MainSide";
@@ -10,14 +11,16 @@ import FormAddProduct from '../adminLteComponents/FormAddProduct';
 import FormEditProduct from '../adminLteComponents/FormEditProduct';
 
 import { ProductContext } from '../context/ProductContext';
-
+import { AuthContext } from '../context/AuthContext';
 
 const ProductPage = () => {
   const { handleClose, handleCloseEditProduct, showModalAddProduct, showModalEditProduct} = useContext(ProductContext);
+  const { user } = useContext(AuthContext);
+
   const [items, setItems] = useState([]);
 
   const getItems = async () => {
-    const res = await axios.get('http://localhost:8000/api/products/');
+    const res = await axios.get('https://zakiulfikri.pythonanywhere.com/api/products/');
     setItems(res.data)
   }
 
@@ -27,6 +30,7 @@ const ProductPage = () => {
 
   return (
     <div className="wrapper">
+      {!user && <Navigate to="/login" replace /> }
       <Navbar />
       <MainSide />
       <div className="content-wrapper">

@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { Navigate } from 'react-router-dom';
 
 import Navbar from "../adminLteComponents/Navbar";
 import MainSide from "../adminLteComponents/MainSide";
@@ -7,12 +8,16 @@ import SmallBox from "../adminLteComponents/SmallBox";
 
 import { ArticleContext } from '../context/ArticleContext';
 import { ProductContext } from '../context/ProductContext';
+import { AuthContext } from '../context/AuthContext';
 
 const Dashboard = () => {
   const { products } = useContext(ProductContext);
   const { articles } = useContext(ArticleContext);
+  const { user } = useContext(AuthContext);
+
   return (
     <div className="wrapper">
+      {!user && <Navigate to="/login" replace /> }
       <Navbar />
       <MainSide />
       <div className="content-wrapper">

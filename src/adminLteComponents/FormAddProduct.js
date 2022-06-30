@@ -30,7 +30,7 @@ const FormAddProduct = () => {
         
         axios({
             method: 'POST',
-            url: 'http://localhost:8000/api/products/',
+            url: 'https://zakiulfikri.pythonanywhere.com/api/products/',
             headers: {},
             data: payload
         })

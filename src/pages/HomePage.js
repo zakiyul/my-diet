@@ -30,7 +30,7 @@ const HomePage = () => {
   const { handleShowBMI } = React.useContext(ProductContext);
 
   const getCaraPakai = async () => {
-    const res = await axios.get("http://localhost:8000/api/cara-pakai/");
+    const res = await axios.get("https://zakiulfikri.pythonanywhere.com/api/cara-pakai/");
     console.log(res);
   };
 
@@ -123,10 +123,7 @@ const HomePage = () => {
               <div className="col-md-6 col-12">
                 <h1 style={{ color: "#656565" }}>MyDietDiary</h1>
                 <p className="text-justify">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lobortis pellentesque sed faucibus nam sed ultricies morbi. Lorem suspendisse eget consequat augue semper sed consectetur dictum mauris. Molestie tellus a pharetra
-                  semper id. Leo nisi, adipiscing nisi, vitae. Lacus sed bibendum viverra nec, urna. Posuere consectetur quis sit lobortis mauris commodo. Lorem volutpat eu praesent lacus. Nunc arcu justo, nibh nibh sed sed. Mi massa magna
-                  morbi nibh ac pulvinar amet erat dis. Morbi vestibulum ornare consequat non et faucibus sit tellus potenti. In sed pulvinar lectus placerat lobortis turpis blandit nec semper. Nullam duis nisi, duis pretium placerat
-                  facilisis pellentesque nulla augue. Tempor adipiscing augue donec diam nec enim, nunc. Ornare egestas etiam venenatis tellus iaculis ullamcorper arcu.
+                Sebuah website yang dapat mempermudah para pelaku diet untuk menentukan diet apa saja yang tepat untuk dilakukan sesuai dengan anjuran dengan memanfaatkan sistem pakar. Terdapat juga fitur produk, perhitungan kalori, serta tips - tips diet
                 </p>
               </div>
               <div className="col-md-6 col-12">

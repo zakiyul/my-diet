@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { Modal } from 'react-bootstrap';
+import { Navigate } from 'react-router-dom';
 
 import Navbar from "../adminLteComponents/Navbar";
 import MainSide from "../adminLteComponents/MainSide";
@@ -9,12 +10,15 @@ import FormAddArticle from '../adminLteComponents/FormAddArticle';
 import FormEditArticle from '../adminLteComponents/FormEditArticle';
 
 import { ArticleContext } from '../context/ArticleContext';
+import { AuthContext } from '../context/AuthContext';
 
 const ItemPage = () => {
   const { handleClose, handleCloseEditArticle, showModalAddArticle, showModalEditArticle } = useContext(ArticleContext);
+  const { user } = useContext(AuthContext);
 
   return (
     <div className="wrapper">
+      {!user && <Navigate to="/login" replace /> }
       <Navbar />
       <MainSide />
       <div className="content-wrapper">

@@ -38,14 +38,14 @@ const FormAddProduct = (props) => {
             delete payload.delete("image")
         }
 
-        axios.patch(`http://localhost:8000/api/products/${productId}`, payload)
+        axios.patch(`https://zakiulfikri.pythonanywhere.com/api/products/${productId}`, payload)
          .then(res => {
             console.log(res);
          })
          .catch(e => console.log(e))
     }
     const getProduct = async () => {
-        const res = await axios.get(`http://localhost:8000/api/products/${productId}`);
+        const res = await axios.get(`https://zakiulfikri.pythonanywhere.com/api/products/${productId}`);
         setProduct(res.data);
         console.log(product.deskripsi)
         setProductId(null);
@@ -102,7 +102,7 @@ const FormAddProduct = (props) => {
             <div className="mb-3">
                 <label htmlFor="">image</label>
                 <input type="file" name="image" onChange={handleImage} id="image" className="form-control" />
-                <small>current image: <a href={`http://localhost:8000$${product.image}`}>{product.nama}</a> </small>
+                <small>current image: <a href={`https://zakiulfikri.pythonanywhere.com/${product.image}`}>{product.nama}</a> </small>
             </div>
             <button type='submit' className="btn btn-primary">add new product</button>
         </form>

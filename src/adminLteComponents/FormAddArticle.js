@@ -24,7 +24,7 @@ const FormAddArticle = () => {
         
         axios({
             method: 'POST',
-            url: 'http://localhost:8000/api/articles/',
+            url: 'https://zakiulfikri.pythonanywhere.com/api/articles/',
             headers: {},
             data: payload
         })

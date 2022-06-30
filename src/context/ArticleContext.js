@@ -10,7 +10,7 @@ export const ArticleProvider = (props) => {
     const [articleId, setArticleId] = useState(null);
 
     const getArticle = async () => {
-        const res = await axios.get('http://localhost:8000/api/articles/');
+        const res = await axios.get('https://zakiulfikri.pythonanywhere.com/api/articles/');
         setArticles(res.data);
     };
 

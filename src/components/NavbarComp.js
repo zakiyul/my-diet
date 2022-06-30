@@ -10,7 +10,7 @@ const NavbarComp = () => {
         <Navbar.Brand href="#home">
           <Link className="navbar-brand" to="/">
             <img src={Logo} alt="logo" width={50} />
-            <strong>MyDietDiary</strong>
+            <strong className="ms-3">MyDietDiary</strong>
           </Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

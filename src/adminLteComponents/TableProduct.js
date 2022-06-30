@@ -18,7 +18,7 @@ const TableComp = ({ data }) => {
       confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:8000/api/products/${id}`)
+        axios.delete(`https://zakiulfikri.pythonanywhere.com/api/products/${id}`)
         Swal.fire(
           'Deleted!',
           'Your file has been deleted.',
@@ -56,7 +56,7 @@ const TableComp = ({ data }) => {
                   <td>Rp. {d.harga}</td>
                   <td>{d.rating}</td>
                   <td>
-                      <img height='100px' src={`http://localhost:8000${d.image}`} alt={d.nama} />
+                      <img height='100px' src={`https://zakiulfikri.pythonanywhere.com/${d.image}`} alt={d.nama} />
                   </td>
                   <td>
                     <button className="btn btn-primary" onClick={() => {
