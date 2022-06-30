@@ -8,20 +8,12 @@ import FooterComp from '../components/Footer';
 const ArticleCard = ({ image, title, link }) => {
     
     return (
-        <div className="row justify-content-center mt-4">
-                <div className="card p-5">
-                    <div className="row no-gutters">
-                    <div className="col-md-2">
+        <div className="row mt-2">
+                <div className="border p-3">
                         <img src={`https://zakiulfikri.pythonanywhere.com/${image}`} className="img-fluid" alt={title} />
-                    </div>
-                    <div className="col-md-10">
-                        <div className="card-body">
                         <h5 className='card-title'>{title}</h5>
                         <p className='card-text'></p>
-                        <a href ={link} target="_blank" rel='noreferrer' className='btn btn-primary' >Selengkapnya</a>
-                        </div>
-                    </div>
-                    </div>
+                        <a href ={link} target="_blank" rel='noreferrer'>Selengkapnya</a>
                 </div>
             </div>
     )
@@ -36,10 +28,16 @@ const ArticlePage = () => {
             <Navbar/>
             <CarouselComp imgs={imgs} />
             <div className='container'>
-                <h2>Artikel</h2>
-                {articles.map((article) => {
-                    return <ArticleCard image={article.image} title={article.title} link={article.link} />
-                })}
+                <h2 className='py-3'>Artikel</h2>
+                <div className="row">
+                    {articles.map((article) => {
+                        return (
+                            <div className='col-md-4 col-12 p-3'>
+                                <ArticleCard image={article.image} title={article.title} link={article.link} />
+                            </div>
+                        )
+                    })}
+                </div>
             </div>
             <FooterComp/>
         </>

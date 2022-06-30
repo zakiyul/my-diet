@@ -1,10 +1,10 @@
 import axios from "axios";
 import { useState } from "react";
-import Navbar from '../components/NavbarComp';
+import NavbarComp from '../components/NavbarComp';
 import FooterComp from '../components/Footer';
 import { useNavigate } from "react-router-dom";
 
-const AnalysisNew =() => {
+const Analysis =() => {
     const navigate = useNavigate();
     const [formValue, setValue] = useState({
         'Q1' : 'no',
@@ -88,14 +88,14 @@ const AnalysisNew =() => {
 
     return(
         <>
-        <Navbar />
-        <div className="container my-4">
-            <h1>Analisis Diri</h1>
+        <NavbarComp/>
+        <div className="container-sm mt-5">
+            <h1 className="mb-5">Analisis Diri</h1>
             <form onSubmit={saveAction}>
-                <div class="mb-3">
+                <div className="mb-3">
                     <input 
                         type="text" 
-                        class="form-control" 
+                        className="form-control" 
                         id="user-name"
                         name="username"
                         placeholder="Nama"
@@ -103,12 +103,12 @@ const AnalysisNew =() => {
                     />
                 </div>
                 
-                <div class="form-check">
-                    <label class="form-check-label" for="male-gender">
+                <div className="form-check">
+                    <label className="form-check-label" for="male-gender">
                     Laki-laki
                     </label>
                     <input 
-                        class="form-check-input" 
+                        className="form-check-input" 
                         type="radio" 
                         name="gender" 
                         id="male-gender" 
@@ -116,12 +116,12 @@ const AnalysisNew =() => {
                     />
                 </div>
         
-                <div class="form-check">
-                    <label class="form-check-label" for="female-gender">
+                <div className="form-check">
+                    <label className="form-check-label" for="female-gender">
                     Perempuan
                     </label>
                     <input 
-                        class="form-check-input" 
+                        className="form-check-input" 
                         type="radio" 
                         name="gender" 
                         id="female-gender" 
@@ -129,10 +129,10 @@ const AnalysisNew =() => {
                     />
                 </div>
 
-                <div class="mb-3">
+                <div className="mb-3">
                     <input 
                         type="number" 
-                        class="form-control" 
+                        className="form-control" 
                         id="user-age"
                         name="age"
                         placeholder="Umur"
@@ -140,10 +140,10 @@ const AnalysisNew =() => {
                     />
                 </div>
 
-                <div class="mb-3">
+                <div className="mb-3">
                     <input 
                         type="number" 
-                        class="form-control" 
+                        className="form-control" 
                         id="user-weight"
                         name="bodyWeight"
                         placeholder="Berat Badan"
@@ -151,10 +151,10 @@ const AnalysisNew =() => {
                     />
                 </div>
         
-                <div class="mb-3">
+                <div className="mb-5">
                     <input 
                         type="number" 
-                        class="form-control" 
+                        className="form-control" 
                         id="user-height" 
                         name="bodyHeight"
                         placeholder="Tinggi Badan"
@@ -162,10 +162,10 @@ const AnalysisNew =() => {
                     />
                 </div>
 
-                <div class="input-group mb-3">
-                    <div class="input-group-text" >
+                <div className="input-group mb-3">
+                    <div className="input-group-text" >
                         <input 
-                            class="form-check-input" 
+                            className="form-check-input" 
                             type="checkbox" 
                             value="" 
                             name="Q1"
@@ -175,17 +175,17 @@ const AnalysisNew =() => {
                     </div>
                     <input 
                         type="text" 
-                        class="form-control" 
+                        className="form-control" 
                         value="Apakah anda dalam melakukan aktifitas sering dengan berjalan kaki?" 
                         aria-label="Pertanyaan Analisis" 
                         readOnly
                     />
                 </div>
 
-                <div class="input-group mb-3">
-                    <div class="input-group-text" >
+                <div className="input-group mb-3">
+                    <div className="input-group-text" >
                         <input 
-                            class="form-check-input" 
+                            className="form-check-input" 
                             type="checkbox" 
                             value="" 
                             name="Q2"
@@ -195,17 +195,17 @@ const AnalysisNew =() => {
                     </div>
                     <input 
                         type="text" 
-                        class="form-control" 
+                        className="form-control" 
                         value="Apakah anda dalam melakukan aktifitas sering dengan berjalan kaki?" 
                         aria-label="Pertanyaan Analisis" 
                         readOnly
                     />
                 </div>
 
-                <div class="input-group mb-3">
-                    <div class="input-group-text" >
+                <div className="input-group mb-3">
+                    <div className="input-group-text" >
                         <input 
-                            class="form-check-input" 
+                            className="form-check-input" 
                             type="checkbox" 
                             value="" 
                             name="Q3"
@@ -215,17 +215,17 @@ const AnalysisNew =() => {
                     </div>
                     <input 
                         type="text" 
-                        class="form-control" 
+                        className="form-control" 
                         value="Apakah anda dalam melakukan aktifitas sering dengan berjalan kaki?" 
                         aria-label="Pertanyaan Analisis" 
                         readOnly
                     />
                 </div>
 
-                <div class="input-group mb-3">
-                    <div class="input-group-text" >
+                <div className="input-group mb-3">
+                    <div className="input-group-text" >
                         <input 
-                            class="form-check-input" 
+                            className="form-check-input" 
                             type="checkbox" 
                             value="" 
                             name="Q4"
@@ -235,17 +235,17 @@ const AnalysisNew =() => {
                     </div>
                     <input 
                         type="text" 
-                        class="form-control" 
+                        className="form-control" 
                         value="Apakah anda dalam melakukan aktifitas sering dengan berjalan kaki?" 
                         aria-label="Pertanyaan Analisis" 
                         readOnly
                     />
                 </div>
 
-                <div class="input-group mb-3">
-                    <div class="input-group-text" >
+                <div className="input-group mb-3">
+                    <div className="input-group-text" >
                         <input 
-                            class="form-check-input" 
+                            className="form-check-input" 
                             type="checkbox" 
                             value="" 
                             name="Q5"
@@ -255,17 +255,17 @@ const AnalysisNew =() => {
                     </div>
                     <input 
                         type="text" 
-                        class="form-control" 
+                        className="form-control" 
                         value="Apakah anda dalam melakukan aktifitas sering dengan berjalan kaki?" 
                         aria-label="Pertanyaan Analisis" 
                         readOnly
                     />
                 </div>
 
-                <div class="input-group mb-3">
-                    <div class="input-group-text" >
+                <div className="input-group mb-3">
+                    <div className="input-group-text" >
                         <input 
-                            class="form-check-input" 
+                            className="form-check-input" 
                             type="checkbox" 
                             value="" 
                             name="Q6"
@@ -275,17 +275,17 @@ const AnalysisNew =() => {
                     </div>
                     <input 
                         type="text" 
-                        class="form-control" 
+                        className="form-control" 
                         value="Apakah anda dalam melakukan aktifitas sering dengan berjalan kaki?" 
                         aria-label="Pertanyaan Analisis" 
                         readOnly
                     />
                 </div>
 
-                <div class="input-group mb-3">
-                    <div class="input-group-text" >
+                <div className="input-group mb-3">
+                    <div className="input-group-text" >
                         <input 
-                            class="form-check-input" 
+                            className="form-check-input" 
                             type="checkbox" 
                             value="" 
                             name="Q7"
@@ -295,17 +295,17 @@ const AnalysisNew =() => {
                     </div>
                     <input 
                         type="text" 
-                        class="form-control" 
+                        className="form-control" 
                         value="Apakah anda dalam melakukan aktifitas sering dengan berjalan kaki?" 
                         aria-label="Pertanyaan Analisis" 
                         readOnly
                     />
                 </div>
 
-                <div class="input-group mb-3">
-                    <div class="input-group-text" >
+                <div className="input-group mb-3">
+                    <div className="input-group-text" >
                         <input 
-                            class="form-check-input" 
+                            className="form-check-input" 
                             type="checkbox" 
                             value="" 
                             name="Q8"
@@ -315,17 +315,17 @@ const AnalysisNew =() => {
                     </div>
                     <input 
                         type="text" 
-                        class="form-control" 
+                        className="form-control" 
                         value="Apakah anda dalam melakukan aktifitas sering dengan berjalan kaki?" 
                         aria-label="Pertanyaan Analisis" 
                         readOnly
                     />
                 </div>
 
-                <div class="input-group mb-3">
-                    <div class="input-group-text" >
+                <div className="input-group mb-3">
+                    <div className="input-group-text" >
                         <input 
-                            class="form-check-input" 
+                            className="form-check-input" 
                             type="checkbox" 
                             value="" 
                             name="Q9"
@@ -335,17 +335,17 @@ const AnalysisNew =() => {
                     </div>
                     <input 
                         type="text" 
-                        class="form-control" 
+                        className="form-control" 
                         value="Apakah anda dalam melakukan aktifitas sering dengan berjalan kaki?" 
                         aria-label="Pertanyaan Analisis" 
                         readOnly
                     />
                 </div>
 
-                <div class="input-group mb-3">
-                    <div class="input-group-text" >
+                <div className="input-group mb-3">
+                    <div className="input-group-text" >
                         <input 
-                            class="form-check-input" 
+                            className="form-check-input" 
                             type="checkbox" 
                             value="" 
                             name="Q10"
@@ -355,21 +355,22 @@ const AnalysisNew =() => {
                     </div>
                     <input 
                         type="text" 
-                        class="form-control" 
+                        className="form-control" 
                         value="Apakah anda dalam melakukan aktifitas sering dengan berjalan kaki?" 
                         aria-label="Pertanyaan Analisis" 
                         readOnly
                     />
                 </div>
 
-                <div class="d-grid gap-2">
-                    <button class="btn btn-success" type="submit">Diagnosa</button>
+                <div className="d-grid gap-2">
+                    <button className="btn btn-success" type="submit">Diagnosa</button>
                 </div>
             </form>
         </div>
-        <FooterComp />
+        <div className="mb-5"></div>
+        <FooterComp/>
         </>
     );
 }
 
-export default AnalysisNew;
+export default Analysis;

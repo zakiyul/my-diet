@@ -60,16 +60,16 @@ const ResultAnalysis = ()  => {
     return(
         <>
         <NavbarComp />
-        <div className="container">
-            <h1>Analisis</h1>
+        <div className="container mt-5 mb-5">
+            <h1 className="mb-5">Analisis</h1>
 
             <div className="row p-3 bg-success">
-                <div className="col ms-auto">
+                <div className="col ms-auto text-white text-center">
                     Hasil Analisis
                 </div>
             </div>
 
-            <div className="row ps-5 pe-5">
+            <div className="row ps-5 pe-5 border border-success mb-5">
                 <div className="col">
                     <div className="row p-2">
                         <div className="col">
@@ -145,7 +145,8 @@ const ResultAnalysis = ()  => {
                 </div>
             </div>
 
-            <h1>Pola Diet Yang Cocok Untuk Kamu</h1>
+
+            <h2 className="mt-4">Pola Diet Yang Cocok Untuk Kamu</h2>
             <div className="row">
                 {dietResult.map((diet) => (
                     <div className="col-sm-6">
