@@ -9,7 +9,7 @@ export const AuthProvider = ({children}) => {
     const navigate = useNavigate();
     const [authToken, setAuthToken] = useState(() => localStorage.getItem('authToken') ? JSON.parse(localStorage.getItem('authToken')) : null);
     const [user, setUser] = useState(() => localStorage.getItem('authToken') ? jwt_decode(localStorage.getItem('authToken')) : null);
-    const [loading, setLoading] = useState(true);
+    // const [loading, setLoading] = useState(true);
 
     const loginUser = async (e) => {
         e.preventDefault();
