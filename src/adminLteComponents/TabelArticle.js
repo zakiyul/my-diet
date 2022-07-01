@@ -5,9 +5,10 @@ import config from '../global/config';
 import { FaTrash, FaPen } from 'react-icons/fa';
 
 import { ArticleContext } from '../context/ArticleContext';
+import { Link } from 'react-router-dom';
 
 const TableComp = () => {
-  const { articles, handleShow, handleShowEditArticle, setArticleId } = useContext(ArticleContext);
+  const { articles, handleShow } = useContext(ArticleContext);
   const handleDelete = (id) => {
     Swal.fire({
       title: 'Are you sure?',
@@ -58,10 +59,7 @@ const TableComp = () => {
                       <img height='100px' src={`${config.BASE_URL}${d.image}`} alt={d.title} />
                   </td>
                   <td>
-                    <button className="btn btn-primary" onClick={() => {
-                        handleShowEditArticle()
-                        setArticleId(d.id)
-                      }}><FaPen/></button>
+                    <Link to={`edit/${d.id}`} className="btn btn-primary"><FaPen/></Link>
                     <button className="btn btn-danger ms-3" onClick={() => handleDelete(d.id)}><FaTrash/></button>
                   </td>
                 </tr>

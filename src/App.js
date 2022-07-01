@@ -16,6 +16,8 @@ import ArticlePage from './adminPage/ArticlePage';
 import Login from './adminPage/Login';
 
 import './App.css';
+import EditProduct from './adminPage/EditProduct';
+import EditArticle from './adminPage/EditArticel';
 
 const App = () => {
   return (
@@ -34,6 +36,8 @@ const App = () => {
               <Route path="admin" element={<Dashboard/>}  />
               <Route path="admin/product" element={<ProductPageAdmin />} />
               <Route path="admin/article" element={<ArticlePage/>} />
+              <Route path="admin/product/edit/:productId" element={<EditProduct />} />
+              <Route path="admin/article/edit/:articleId" element={<EditArticle />} />
             </Routes>
           </div> 
         </AuthProvider>

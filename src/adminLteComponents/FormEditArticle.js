@@ -1,15 +1,17 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import config from '../global/config';
 
 import { ArticleContext } from '../context/ArticleContext';
 
-const FormAddProduct = (props) => {
+const FormAddProduct = ({article_id}) => {
+    const navigate = useNavigate();
     const [article, setArticle] = useState({});
     const [articleImg, setArticleImg] = useState();
 
-    const { articleId, setArticelId, handleClose, setArticles } = useContext(ArticleContext)
+    const { setArticles } = useContext(ArticleContext)
 
     const handleChange = e => {
         const {value, name} = e.target;
@@ -33,20 +35,18 @@ const FormAddProduct = (props) => {
             delete payload.delete("image")
         }
 
-        axios.patch(`${config.BASE_URL}/api/articles/${articleId}`, payload)
+        axios.patch(`${config.BASE_URL}/api/articles/${article_id}`, payload)
          .then(res => {
             console.log(res);
             setArticles(prevState => {
                 return [res.data, ...prevState]
-            })
-            handleClose();
-            setArticelId(null);
-            window.location.reload(false);
+            });
+            navigate('/admin/article',{ replace: true });
          })
          .catch(e => console.log(e))
     }
     const getProduct = async () => {
-        const res = await axios.get(`${config.BASE_URL}/api/articles/${articleId}`);
+        const res = await axios.get(`${config.BASE_URL}/api/articles/${article_id}`);
         setArticle(res.data);
     }
 

@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import config from '../global/config';
 
@@ -9,10 +10,11 @@ import Classic from '@ckeditor/ckeditor5-build-classic';
 import { ProductContext } from '../context/ProductContext';
 
 const FormAddProduct = (props) => {
+    const navigate = useNavigate();
     const [product, setProduct] = useState({});
     const [productImg, setProductImg] = useState();
 
-    const { productId, setProductId, setProducts, handleClose } = useContext(ProductContext)
+    const { setProducts } = useContext(ProductContext)
 
     const handleChange = e => {
         const {value, name} = e.target;
@@ -39,22 +41,19 @@ const FormAddProduct = (props) => {
             delete payload.delete("image")
         }
 
-        axios.patch(`${config.BASE_URL}/api/products/${productId}`, payload)
+        axios.patch(`${config.BASE_URL}/api/products/${props.product_id}`, payload)
          .then(res => {
             console.log(res);
             setProducts(prevState => {
                 return [res.data, ...prevState]
              });
-             handleClose();
-             setProductId(null);
-             window.location.reload(false);
+            navigate('/admin/product',{ replace: true });
          })
          .catch(e => console.log(e))
     }
     const getProduct = async () => {
-        const res = await axios.get(`${config.BASE_URL}/api/products/${productId}`);
+        const res = await axios.get(`${config.BASE_URL}/api/products/${props.product_id}`);
         setProduct(res.data);
-        // setProductId(null);
     }
 
     useEffect(() => {
@@ -77,15 +76,13 @@ const FormAddProduct = (props) => {
             </div>
             <div className="mb-3">
                 <label htmlFor="">Deskripsi</label>
-                <textarea onChange={handleChange} name="deskripsi" id="" cols="30" rows="10" className="form-control">
-                    {product.deskripsi}
-                </textarea>
+                <textarea onChange={handleChange} name="deskripsi" id="" cols="30" rows="10" className="form-control" value={product.deskripsi} />
             </div>
             <div className="mb-3">
                 <label htmlFor="">Cara Pakai</label>
                 <CKEditor
                     name="caraPakai"
-                    data={product.caraPakai}
+                    data={product.caraPakai ? product.caraPakai : ''}
                     editor={ Classic } 
                     onChange={(event, editor) => {
                         const data = editor.getData()
@@ -97,7 +94,7 @@ const FormAddProduct = (props) => {
                 <label htmlFor="">Ingredients</label>
                 <CKEditor
                     name="ingredients"
-                    data={product.ingredients}
+                    data={product.ingredients ? product.ingredients : ''}
                     editor={ Classic } 
                     onChange={(event, editor) => {
                         const data = editor.getData()

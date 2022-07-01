@@ -5,9 +5,10 @@ import config from '../global/config';
 import { FaTrash, FaPen } from 'react-icons/fa';
 
 import { ProductContext } from '../context/ProductContext';
+import { Link } from 'react-router-dom';
 
 const TableComp = ({ data }) => {
-  const { handleShow, handleShowEditProduct, setProductId } = useContext(ProductContext);
+  const { handleShow } = useContext(ProductContext);
   const handleDelete = (id) => {
     Swal.fire({
       title: 'Are you sure?',
@@ -61,10 +62,7 @@ const TableComp = ({ data }) => {
                       <img height='100px' src={`${config.BASE_URL}${d.image}`} alt={d.nama} />
                   </td>
                   <td>
-                    <button className="btn btn-primary" onClick={() => {
-                        handleShowEditProduct()
-                        setProductId(d.id)
-                      }}><FaPen/></button>
+                    <Link className="btn btn-primary" to={`edit/${d.id}`} ><FaPen/></Link>
                     <button className="btn btn-danger ms-3" onClick={() => handleDelete(d.id)}><FaTrash/></button>
                   </td>
                 </tr>
