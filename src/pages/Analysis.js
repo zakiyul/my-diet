@@ -1,9 +1,9 @@
 import axios from "axios";
 import { useState } from "react";
-import Form from 'react-bootstrap/Form'
+import { useNavigate } from "react-router-dom";
+import Form from 'react-bootstrap/Form';
 import NavbarComp from '../components/NavbarComp';
 import FooterComp from '../components/Footer';
-import { useNavigate } from "react-router-dom";
 
 const Analysis =() => {
     const navigate = useNavigate();
@@ -104,29 +104,22 @@ const Analysis =() => {
                     />
                 </div>
                 
-                <div className="form-check">
-                    {/* <label className="form-check-label" for="male-gender">
-                    Laki-laki
-                    </label> */}
-                    <Form.Check type="radio" label="Laki-laki"></Form.Check>
-                    {/* <input 
-                        className="form-check-input" 
+                <div className="form-check mb-3">
+                    <Form.Check
                         type="radio" 
                         name="gender" 
                         id="male-gender" 
+                        label = "Laki-laki"
                         onChange={handleRadio}
-                    /> */}
+                    />
                 </div>
         
-                <div className="form-check">
-                    <label className="form-check-label" for="female-gender">
-                    Perempuan
-                    </label>
-                    <input 
-                        className="form-check-input" 
+                <div className="form-check mb-3">
+                    <Form.Check 
                         type="radio" 
                         name="gender" 
                         id="female-gender" 
+                        label="Perempuan"
                         onChange={handleRadio}
                     />
                 </div>
@@ -165,206 +158,126 @@ const Analysis =() => {
                 </div>
 
                 <div className="input-group mb-3">
-                    <div className="input-group-text" >
-                        <input 
-                            className="form-check-input" 
+                    <div>
+                        <Form.Check 
                             type="checkbox" 
-                            value="" 
+                            label="Apakah anda dalam melakukan aktifitas sering dengan berjalan kaki? "
                             name="Q1"
                             id="flexCheckDefault" 
                             onChange={handleCheck}
                         />
                     </div>
-                    <input 
-                        type="text" 
-                        className="form-control" 
-                        value="Apakah anda dalam melakukan aktifitas sering dengan berjalan kaki?" 
-                        aria-label="Pertanyaan Analisis" 
-                        readOnly
-                    />
                 </div>
 
                 <div className="input-group mb-3">
-                    <div className="input-group-text" >
-                        <input 
-                            className="form-check-input" 
+                    <div >
+                        <Form.Check
                             type="checkbox" 
-                            value="" 
+                            label="Apakah anda sering melakukan aktifitas mencuci ?" 
                             name="Q2"
                             id="flexCheckDefault" 
                             onChange={handleCheck}
                         />
                     </div>
-                    <input 
-                        type="text" 
-                        className="form-control" 
-                        value="Apakah anda dalam melakukan aktifitas sering dengan berjalan kaki?" 
-                        aria-label="Pertanyaan Analisis" 
-                        readOnly
-                    />
                 </div>
 
                 <div className="input-group mb-3">
-                    <div className="input-group-text" >
-                        <input 
-                            className="form-check-input" 
+                    <div>
+                        <Form.Check
                             type="checkbox" 
-                            value="" 
+                            label="Apakah anda sering melakukan aktifitas membersihkan rumah ?"
                             name="Q3"
                             id="flexCheckDefault" 
                             onChange={handleCheck}
                         />
                     </div>
-                    <input 
-                        type="text" 
-                        className="form-control" 
-                        value="Apakah anda dalam melakukan aktifitas sering dengan berjalan kaki?" 
-                        aria-label="Pertanyaan Analisis" 
-                        readOnly
-                    />
                 </div>
 
                 <div className="input-group mb-3">
-                    <div className="input-group-text" >
-                        <input 
-                            className="form-check-input" 
+                    <div>
+                        <Form.Check
                             type="checkbox" 
-                            value="" 
+                            label="Apakah anda sering traveling ?"
                             name="Q4"
                             id="flexCheckDefault" 
                             onChange={handleCheck}
                         />
                     </div>
-                    <input 
-                        type="text" 
-                        className="form-control" 
-                        value="Apakah anda dalam melakukan aktifitas sering dengan berjalan kaki?" 
-                        aria-label="Pertanyaan Analisis" 
-                        readOnly
-                    />
                 </div>
 
                 <div className="input-group mb-3">
-                    <div className="input-group-text" >
-                        <input 
-                            className="form-check-input" 
+                    <div>
+                        <Form.Check
                             type="checkbox" 
-                            value="" 
+                            label="Apakah anda sering berbelanja ?"
                             name="Q5"
                             id="flexCheckDefault" 
                             onChange={handleCheck}
                         />
                     </div>
-                    <input 
-                        type="text" 
-                        className="form-control" 
-                        value="Apakah anda dalam melakukan aktifitas sering dengan berjalan kaki?" 
-                        aria-label="Pertanyaan Analisis" 
-                        readOnly
-                    />
                 </div>
 
                 <div className="input-group mb-3">
-                    <div className="input-group-text" >
-                        <input 
-                            className="form-check-input" 
+                    <div>
+                        <Form.Check
                             type="checkbox" 
-                            value="" 
+                            label="Apakah anda sering menggunakan atau mengendarai kendaraan ?"
                             name="Q6"
                             id="flexCheckDefault" 
                             onChange={handleCheck}
                         />
                     </div>
-                    <input 
-                        type="text" 
-                        className="form-control" 
-                        value="Apakah anda dalam melakukan aktifitas sering dengan berjalan kaki?" 
-                        aria-label="Pertanyaan Analisis" 
-                        readOnly
-                    />
                 </div>
 
                 <div className="input-group mb-3">
-                    <div className="input-group-text" >
-                        <input 
-                            className="form-check-input" 
+                    <div>
+                        <Form.Check
                             type="checkbox" 
-                            value="" 
+                            label="Apakah anda sering melakukan aktivitas dalam ruangan ?"
                             name="Q7"
                             id="flexCheckDefault" 
                             onChange={handleCheck}
                         />
                     </div>
-                    <input 
-                        type="text" 
-                        className="form-control" 
-                        value="Apakah anda dalam melakukan aktifitas sering dengan berjalan kaki?" 
-                        aria-label="Pertanyaan Analisis" 
-                        readOnly
-                    />
                 </div>
 
                 <div className="input-group mb-3">
-                    <div className="input-group-text" >
-                        <input 
-                            className="form-check-input" 
+                    <div>
+                        <Form.Check
                             type="checkbox" 
-                            value="" 
+                            label="Apakah anda sering melakukan aktifitas mengetik ?"
                             name="Q8"
                             id="flexCheckDefault" 
                             onChange={handleCheck}
                         />
                     </div>
-                    <input 
-                        type="text" 
-                        className="form-control" 
-                        value="Apakah anda dalam melakukan aktifitas sering dengan berjalan kaki?" 
-                        aria-label="Pertanyaan Analisis" 
-                        readOnly
-                    />
                 </div>
 
                 <div className="input-group mb-3">
-                    <div className="input-group-text" >
-                        <input 
-                            className="form-check-input" 
+                    <div>
+                        <Form.Check
                             type="checkbox" 
-                            value="" 
+                            label="Apakah anda sering menggunakan komputer ?"
                             name="Q9"
                             id="flexCheckDefault" 
                             onChange={handleCheck}
                         />
                     </div>
-                    <input 
-                        type="text" 
-                        className="form-control" 
-                        value="Apakah anda dalam melakukan aktifitas sering dengan berjalan kaki?" 
-                        aria-label="Pertanyaan Analisis" 
-                        readOnly
-                    />
                 </div>
 
                 <div className="input-group mb-3">
-                    <div className="input-group-text" >
-                        <input 
-                            className="form-check-input" 
+                    <div>
+                        <Form.Check
                             type="checkbox" 
-                            value="" 
+                            label="Apakah anda sering melakukan aktifitas mengajar ?"
                             name="Q10"
                             id="flexCheckDefault" 
                             onChange={handleCheck}
                         />
                     </div>
-                    <input 
-                        type="text" 
-                        className="form-control" 
-                        value="Apakah anda dalam melakukan aktifitas sering dengan berjalan kaki?" 
-                        aria-label="Pertanyaan Analisis" 
-                        readOnly
-                    />
                 </div>
 
-                <div className="d-grid gap-2">
+                <div className="d-grid gap-2 mt-5">
                     <button className="btn btn-success" type="submit">Diagnosa</button>
                 </div>
             </form>
