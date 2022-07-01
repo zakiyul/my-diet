@@ -12,7 +12,7 @@ import { ProductContext } from "../context/ProductContext";
 import Statistik from "../components/Statistik";
 
 const HomePage = () => {
-  const imgs = ["/jumbotron/1.png", "/jumbotron/2.png"];
+  const imgs = ["/jumbotron/1.png", "/jumbotron/2.png", "/jumbotron/3.png"];
   const dataStatistik = [
     {
       tahun: '2007',
@@ -62,6 +62,8 @@ const HomePage = () => {
 
       <section id="data-diet" className="mb-5">
         <div className="container p-5">
+          <h1 className="text-orange text-center">Obesitas di Indonesia</h1>
+          <h3 className="text-orange text-center">Satu Dekade Pertambahan Berat Badan</h3>
           <div className="row">
           {/* <img src="/imgs/statistik-diet.png" width="100%" alt="statistik diet" /> */}
             {dataStatistik.map((statistik, idx) => {
@@ -129,7 +131,7 @@ const HomePage = () => {
               <div className="col-md-6 col-12">
                 <iframe
                   className="maps"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9217.989923613726!2d107.5999973550412!3d-6.943810743419139!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e892041f5f4d%3A0x62b0d7b3a715ffff!2sDietplus%20Bandung!5e0!3m2!1sid!2sid!4v1654312001579!5m2!1sid!2sid"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3945.152876344463!2d116.11702585116404!3d-8.581296093801923!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf5395df35f6af024!2sAstri%20Apotik!5e0!3m2!1sid!2ssg!4v1656640277302!5m2!1sid!2ssg"
                   // width={500}
                   // height={350}
                   allowFullScreen=""

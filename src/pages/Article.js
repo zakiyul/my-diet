@@ -21,7 +21,7 @@ const ArticleCard = ({ image, title, link }) => {
 
 const ArticlePage = () => {
     const { articles } = useContext(ArticleContext);
-    const imgs = ["/jumbotron/1.png", "/jumbotron/2.png"];
+    const imgs = ["/jumbotron/1.png", "/jumbotron/2.png", "/jumbotron/3.png"];
     
     return ( 
         <>
