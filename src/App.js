@@ -5,6 +5,7 @@ import ProductPage from './pages/ProductPage';
 import Article from './pages/Article';
 import ResultAnalysis from './pages/Result-analysis';
 import Analysis from './pages/Analysis';
+import DetailProduct from './pages/DetailProduct';
 
 import { AuthProvider } from './context/AuthContext';
 
@@ -27,6 +28,7 @@ const App = () => {
               <Route path="artikel" element={<Article/>} />
               <Route path="analisis" element={<Analysis/>} />
               <Route path="hasil-analisis" element={<ResultAnalysis/>} />
+              <Route path="produk/:productId" element={<DetailProduct/>} />
               
               <Route path="login" element={<Login />} />
               <Route path="admin" element={<Dashboard/>}  />

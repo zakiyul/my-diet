@@ -24,6 +24,10 @@
 .zk-card a:hover {
   color: #4e6b00;
 }
+/* .zk-desc-img{
+  height: 563px;
+  height: auto;
+} */
 .jumbotron {
   background-image: url("https://i.ibb.co/SvR6ZTW/jumbotron.png");
   height: 100%;

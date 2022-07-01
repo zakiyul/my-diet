@@ -1,11 +1,13 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import axios from 'axios';
 
+import { ArticleContext } from '../context/ArticleContext';
 import config from '../global/config';
 
 const FormAddArticle = () => {
     const [article, setArticle] = useState({});
     const [articleImg, setArticleImg] = useState();
+    const { handleClose, setArticles } = useContext(ArticleContext)
 
     const handleChange = e => {
         const {value, name} = e.target;
@@ -31,7 +33,12 @@ const FormAddArticle = () => {
             data: payload
         })
          .then((res) => {
-             console.log(res)
+             console.log(res);
+             setArticles(prevState => {
+                return [res.data, ...prevState]
+             });
+             handleClose();
+             window.location.reload(false);
          })
          .catch((e) => {
              console.log(e)

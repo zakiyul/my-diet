@@ -46,6 +46,7 @@ const FormAddProduct = (props) => {
                 return [res.data, ...prevState]
              });
              handleClose();
+             setProductId(null);
              window.location.reload(false);
          })
          .catch(e => console.log(e))
@@ -53,7 +54,7 @@ const FormAddProduct = (props) => {
     const getProduct = async () => {
         const res = await axios.get(`${config.BASE_URL}/api/products/${productId}`);
         setProduct(res.data);
-        setProductId(null);
+        // setProductId(null);
     }
 
     useEffect(() => {
@@ -109,7 +110,7 @@ const FormAddProduct = (props) => {
                 <input type="file" name="image" onChange={handleImage} id="image" className="form-control" />
                 <small>current image: <a href={`${config.BASE_URL}/${product.image}`}>{product.nama}</a> </small>
             </div>
-            <button type='submit' className="btn btn-primary">add new product</button>
+            <button type='submit' className="btn btn-primary">edit product</button>
         </form>
      );
 }

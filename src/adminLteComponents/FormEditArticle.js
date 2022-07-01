@@ -9,7 +9,7 @@ const FormAddProduct = (props) => {
     const [article, setArticle] = useState({});
     const [articleImg, setArticleImg] = useState();
 
-    const { articleId, setArticelId } = useContext(ArticleContext)
+    const { articleId, setArticelId, handleClose, setArticles } = useContext(ArticleContext)
 
     const handleChange = e => {
         const {value, name} = e.target;
@@ -36,13 +36,18 @@ const FormAddProduct = (props) => {
         axios.patch(`${config.BASE_URL}/api/articles/${articleId}`, payload)
          .then(res => {
             console.log(res);
+            setArticles(prevState => {
+                return [res.data, ...prevState]
+            })
+            handleClose();
+            setArticelId(null);
+            window.location.reload(false);
          })
          .catch(e => console.log(e))
     }
     const getProduct = async () => {
         const res = await axios.get(`${config.BASE_URL}/api/articles/${articleId}`);
         setArticle(res.data);
-        setArticelId(null);
     }
 
     useEffect(() => {

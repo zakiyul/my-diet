@@ -58,7 +58,7 @@ const TableComp = ({ data }) => {
                   <td>Rp. {d.harga}</td>
                   <td>{d.rating}</td>
                   <td>
-                      <img height='100px' src={`${config.BASE_URL}/${d.image}`} alt={d.nama} />
+                      <img height='100px' src={`${config.BASE_URL}${d.image}`} alt={d.nama} />
                   </td>
                   <td>
                     <button className="btn btn-primary" onClick={() => {
