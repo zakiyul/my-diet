@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import Form from 'react-bootstrap/Form'
 import NavbarComp from '../components/NavbarComp';
 import FooterComp from '../components/Footer';
 import { useNavigate } from "react-router-dom";
@@ -104,16 +105,17 @@ const Analysis =() => {
                 </div>
                 
                 <div className="form-check">
-                    <label className="form-check-label" for="male-gender">
+                    {/* <label className="form-check-label" for="male-gender">
                     Laki-laki
-                    </label>
-                    <input 
+                    </label> */}
+                    <Form.Check type="radio" label="Laki-laki"></Form.Check>
+                    {/* <input 
                         className="form-check-input" 
                         type="radio" 
                         name="gender" 
                         id="male-gender" 
                         onChange={handleRadio}
-                    />
+                    /> */}
                 </div>
         
                 <div className="form-check">
