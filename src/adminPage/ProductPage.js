@@ -15,15 +15,15 @@ import { ProductContext } from '../context/ProductContext';
 import { AuthContext } from '../context/AuthContext';
 
 const ProductPage = () => {
-  const { handleClose, handleCloseEditProduct, showModalAddProduct, showModalEditProduct} = useContext(ProductContext);
+  const { handleClose, handleCloseEditProduct, showModalAddProduct, showModalEditProduct, products} = useContext(ProductContext);
   const { user } = useContext(AuthContext);
 
-  const [items, setItems] = useState([]);
+  // const [items, setItems] = useState([]);
 
-  const getItems = async () => {
-    const res = await axios.get(`${config.BASE_URL}/api/products/`);
-    setItems(res.data)
-  }
+  // const getItems = async () => {
+  //   const res = await axios.get(`${config.BASE_URL}/api/products/`);
+  //   setItems(res.data)
+  // }
 
   useEffect(() => {
     getItems()
@@ -69,7 +69,7 @@ const ProductPage = () => {
           <div className="container-fluid">
               <div className="row">
                   <div className="col-md-12">
-                      <TableProduct data={items}/>
+                      <TableProduct data={products}/>
                   </div>
               </div>
           </div>
