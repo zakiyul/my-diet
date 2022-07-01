@@ -42,7 +42,7 @@ const Analysis =() => {
 
         
 
-        axios.get('http://localhost:5000/api/analysis/'+ rule_request,
+        axios.get('https://my-diet-diary.herokuapp.com/api/analysis/'+ rule_request,
         {
             params: {
                 rule_request

@@ -12,16 +12,17 @@ const ResultAnalysis = ()  => {
     const [bmi, setBmi] = useState();
     const [bbIdeal, setBbIdeal] = useState();
     const [calory, setCalory] = useState();
-
+    
     useEffect(() => {
         getProducts(resultAnalysis.result);
         countBMI();
         countBbIdeal();
         countCaloryNeed();
+        console.log(location);
     }, []);
- 
+    
     const getProducts = async (kd_result) => {
-        const response = await axios.get('http://localhost:5000/api/result/'+ kd_result,
+        const response = await axios.get('https://my-diet-diary.herokuapp.com/api/result/'+ kd_result,
         {
             params: {
                 kd_result
@@ -29,13 +30,13 @@ const ResultAnalysis = ()  => {
         });
         setDiet(response.data.data);
     }
-
+    
     const countBMI = () => {
         const height = userData.bodyHeight/100;
         let resultBmi = userData.bodyWeight/(height * height);
         setBmi(resultBmi);
     }
-
+    
     const countBbIdeal = () => {
         if(userData.gender === 'Laki-laki'){
             const resultBbIdeal = (userData.bodyHeight-100) - ((userData.bodyHeight-100)*0.10);
@@ -45,7 +46,7 @@ const ResultAnalysis = ()  => {
             setBbIdeal(resultBbIdeal);
         }
     }
-
+    
     const countCaloryNeed = () => {
         if(userData.gender === 'Laki-laki'){
             const resultBbIdeal = (88.4 + 13.4 * userData.bodyWeight) + (4,8 * userData.bodyHeight) - (5.68 * userData.age);
@@ -56,6 +57,7 @@ const ResultAnalysis = ()  => {
         }
     }
 
+    
     return(
         <>
         <NavbarComp />
@@ -70,11 +72,11 @@ const ResultAnalysis = ()  => {
 
             <div className="row ps-5 pe-5 border border-success mb-5">
                 <div className="col">
-                    <div className="row p-2">
-                        <div className="col">
-                            Nama
-                        </div>
-                        <div className="col">
+                <div className="row p-2">
+                <div className="col">
+                Nama
+                </div>
+                <div className="col">
                             {userData.username}
                         </div>
                     </div>
@@ -129,7 +131,7 @@ const ResultAnalysis = ()  => {
                             BMI
                         </div>
                         <div className="col">
-                            {bmi}
+                            {bmi.toString().substring(0, 4)}
                         </div>
                     </div>
 
