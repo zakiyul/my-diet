@@ -148,10 +148,10 @@ const ResultAnalysis = ()  => {
             <h2 className="mt-4">Pola Diet Yang Cocok Untuk Kamu</h2>
             <div className="row">
                 {dietResult.map((diet) => (
-                    <div className="col-sm-6">
+                    <div className="col-sm-12">
                         <div className="card">
                         <div className="card-body">
-                            <h5 className="card-title">{diet.name}</h5>
+                            <h5 className="card-title"><b>{diet.name}</b></h5>
                             <p className="card-text">{diet.description}</p>
                         </div>
                     </div>
