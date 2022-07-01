@@ -1,7 +1,5 @@
-import { useState, useContext } from 'react';
-import axios from 'axios';
+import { useContext } from 'react';
 import { Modal } from 'react-bootstrap';
-import config from '../global/config';
 import { Navigate } from 'react-router-dom';
 
 import Navbar from "../adminLteComponents/Navbar";
@@ -17,18 +15,6 @@ import { AuthContext } from '../context/AuthContext';
 const ProductPage = () => {
   const { handleClose, handleCloseEditProduct, showModalAddProduct, showModalEditProduct, products} = useContext(ProductContext);
   const { user } = useContext(AuthContext);
-
-  // const [items, setItems] = useState([]);
-
-  // const getItems = async () => {
-  //   const res = await axios.get(`${config.BASE_URL}/api/products/`);
-  //   setItems(res.data)
-  // }
-
-  // useEffect(() => {
-  //   getItems()
-  // },[])
-
   return (
     <div className="wrapper">
       {!user && <Navigate to="/login" replace /> }

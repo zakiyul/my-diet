@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from 'react';
+import { createContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 import Swal from 'sweetalert2';
@@ -10,7 +10,6 @@ export const AuthProvider = ({children}) => {
     const navigate = useNavigate();
     const [authToken, setAuthToken] = useState(() => localStorage.getItem('authToken') ? JSON.parse(localStorage.getItem('authToken')) : null);
     const [user, setUser] = useState(() => localStorage.getItem('authToken') ? jwt_decode(localStorage.getItem('authToken')) : null);
-    // const [loading, setLoading] = useState(true);
 
     const loginUser = async (e) => {
         e.preventDefault();
@@ -25,6 +24,7 @@ export const AuthProvider = ({children}) => {
         if (response.status === 200) {
             setAuthToken(data);
             setUser(jwt_decode(data.access));
+            console.log(authToken);
             localStorage.setItem('authToken', JSON.stringify(data));
             navigate('/admin', { replace: true }); 
         } else {
@@ -41,40 +41,12 @@ export const AuthProvider = ({children}) => {
         localStorage.removeItem('authToken');
         navigate('/login', { replace: true });
     }
-    const updateToken = async () => {
-        const response = await fetch(`${config.BASE_URL}/api/refresh/`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ 'refresh': authToken.refresh })
-        });
-        const data = await response.json();
-
-        if (response.status === 200) {
-            setAuthToken(data);
-            setUser(jwt_decode(data.access));
-            localStorage.setItem('authToken', JSON.stringify(data));
-        } else {
-            logoutUser();
-        }
-    }
 
     const contextData = {
         user,
         loginUser,
         logoutUser,
     };
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            if (authToken) {
-                updateToken();
-            }
-        }, 90000 * 60 * 60 * 24);
-        
-        return () => clearInterval(interval);
-    })
     return (
         <AuthContext.Provider value={contextData}>
             {children}
