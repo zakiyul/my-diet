@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
@@ -18,7 +19,6 @@ const ResultAnalysis = ()  => {
         countBMI();
         countBbIdeal();
         countCaloryNeed();
-        console.log(location);
     }, []);
     
     const getProducts = async (kd_result) => {
