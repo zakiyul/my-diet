@@ -1,5 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
-import axios from 'axios';
+import { useContext, useState } from 'react';
 import {FaSearch} from 'react-icons/fa';
 
 import CardComp from '../components/CardComp';
@@ -12,7 +11,7 @@ import { ProductContext } from '../context/ProductContext';
 const HomePage = () => {
   const imgs = ["/jumbotron/1.png", "/jumbotron/2.png", "/jumbotron/3.png"];
   const [cariProduk, setCariProduk] = useState();
-  const { products, setProducts, getProducts } = useContext(ProductContext);
+  const { products, setProducts } = useContext(ProductContext);
 
   const handleCariChange = e => {
     const { value } = e.target;
@@ -26,15 +25,6 @@ const HomePage = () => {
     console.log(productFiltered);
     setProducts(productFiltered);
   }
-
-  // useEffect(() => {
-  //   if (cariProduk.length < 1) {
-  //     getProducts()
-  //   } else {
-  //     setProducts(products.filter(product => product.nama.toUpperCase().includes(cariProduk.toUpperCase())))
-  //   }
-  // }, [cariProduk])
-
 
   return (
     <>
