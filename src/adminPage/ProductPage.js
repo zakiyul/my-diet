@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useContext } from 'react';
 import axios from 'axios';
 import { Modal } from 'react-bootstrap';
 import config from '../global/config';
@@ -25,9 +25,9 @@ const ProductPage = () => {
   //   setItems(res.data)
   // }
 
-  useEffect(() => {
-    getItems()
-  },[])
+  // useEffect(() => {
+  //   getItems()
+  // },[])
 
   return (
     <div className="wrapper">
