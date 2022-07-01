@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import axios from 'axios';
 
+import config from '../global/config';
+
 const FormAddArticle = () => {
     const [article, setArticle] = useState({});
     const [articleImg, setArticleImg] = useState();
@@ -24,7 +26,7 @@ const FormAddArticle = () => {
         
         axios({
             method: 'POST',
-            url: 'https://zakiulfikri.pythonanywhere.com/api/articles/',
+            url: `${config.BASE_URL}/api/articles/`,
             headers: {},
             data: payload
         })

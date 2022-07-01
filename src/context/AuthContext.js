@@ -2,6 +2,7 @@ import { createContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 import Swal from 'sweetalert2';
+import config from '../global/config';
 
 export const AuthContext = createContext();
 
@@ -13,7 +14,7 @@ export const AuthProvider = ({children}) => {
 
     const loginUser = async (e) => {
         e.preventDefault();
-        const response = await fetch('https://zakiulfikri.pythonanywhere.com/api/token/', {
+        const response = await fetch(`${config.BASE_URL}/api/token/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -41,7 +42,7 @@ export const AuthProvider = ({children}) => {
         navigate('/login', { replace: true });
     }
     const updateToken = async () => {
-        const response = await fetch('https://zakiulfikri.pythonanywhere.com/api/refresh', {
+        const response = await fetch(`${config.BASE_URL}/api/refresh/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -70,7 +71,7 @@ export const AuthProvider = ({children}) => {
             if (authToken) {
                 updateToken();
             }
-        }, 2000);
+        }, 5000);
         
         return () => clearInterval(interval);
     })

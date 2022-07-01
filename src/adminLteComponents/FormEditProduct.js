@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
+import config from '../global/config';
 
 import { CKEditor } from '@ckeditor/ckeditor5-react'
 import Classic from '@ckeditor/ckeditor5-build-classic';
@@ -11,7 +12,7 @@ const FormAddProduct = (props) => {
     const [product, setProduct] = useState({});
     const [productImg, setProductImg] = useState();
 
-    const { productId, setProductId } = useContext(ProductContext)
+    const { productId, setProductId, setProducts, handleClose } = useContext(ProductContext)
 
     const handleChange = e => {
         const {value, name} = e.target;
@@ -38,16 +39,20 @@ const FormAddProduct = (props) => {
             delete payload.delete("image")
         }
 
-        axios.patch(`https://zakiulfikri.pythonanywhere.com/api/products/${productId}`, payload)
+        axios.patch(`${config.BASE_URL}/api/products/${productId}`, payload)
          .then(res => {
             console.log(res);
+            setProducts(prevState => {
+                return [res.data, ...prevState]
+             });
+             handleClose();
+             window.location.reload(false);
          })
          .catch(e => console.log(e))
     }
     const getProduct = async () => {
-        const res = await axios.get(`https://zakiulfikri.pythonanywhere.com/api/products/${productId}`);
+        const res = await axios.get(`${config.BASE_URL}/api/products/${productId}`);
         setProduct(res.data);
-        console.log(product.deskripsi)
         setProductId(null);
     }
 
@@ -102,7 +107,7 @@ const FormAddProduct = (props) => {
             <div className="mb-3">
                 <label htmlFor="">image</label>
                 <input type="file" name="image" onChange={handleImage} id="image" className="form-control" />
-                <small>current image: <a href={`https://zakiulfikri.pythonanywhere.com/${product.image}`}>{product.nama}</a> </small>
+                <small>current image: <a href={`${config.BASE_URL}/${product.image}`}>{product.nama}</a> </small>
             </div>
             <button type='submit' className="btn btn-primary">add new product</button>
         </form>

@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import config from '../global/config';
 import { FaTrash, FaPen } from 'react-icons/fa';
 
 import { ProductContext } from '../context/ProductContext';
@@ -18,12 +19,13 @@ const TableComp = ({ data }) => {
       confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`https://zakiulfikri.pythonanywhere.com/api/products/${id}`)
+        axios.delete(`${config.BASE_URL}/api/products/${id}`)
         Swal.fire(
           'Deleted!',
           'Your file has been deleted.',
           'success'
-        )
+        );
+        window.location.reload(false);
       }
     })
   }
@@ -56,7 +58,7 @@ const TableComp = ({ data }) => {
                   <td>Rp. {d.harga}</td>
                   <td>{d.rating}</td>
                   <td>
-                      <img height='100px' src={`https://zakiulfikri.pythonanywhere.com/${d.image}`} alt={d.nama} />
+                      <img height='100px' src={`${config.BASE_URL}/${d.image}`} alt={d.nama} />
                   </td>
                   <td>
                     <button className="btn btn-primary" onClick={() => {

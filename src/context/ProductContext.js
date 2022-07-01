@@ -1,5 +1,6 @@
 import { useState, useEffect, createContext } from 'react';
 import axios from 'axios';
+import config from '../global/config';
 
 export const ProductContext = createContext();
 
@@ -11,7 +12,7 @@ export const ProductProvider = (props) => {
     const [productId, setProductId] = useState(null);
 
     const getProducts = async () => {
-        const response = await axios.get('https://zakiulfikri.pythonanywhere.com/api/products/');
+        const response = await axios.get(`${config.BASE_URL}/api/products/`);
         setProducts(response.data)
     };
 

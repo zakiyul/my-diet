@@ -1,10 +1,12 @@
 import { useContext, useState } from 'react';
+import axios from 'axios';
 import {FaSearch} from 'react-icons/fa';
 
 import CardComp from '../components/CardComp';
 import NavbarComp from '../components/NavbarComp';
 import CarouselComp from '../components/CarouselComp';
 import FooterComp from '../components/Footer';
+import config from '../global/config';
 
 import { ProductContext } from '../context/ProductContext';
 
@@ -18,12 +20,21 @@ const HomePage = () => {
     setCariProduk(value);
   }
   const handleCariSubmit = e => {
-    e.preventDefault()
-    const productFiltered = products.filter(product => {
-      return product.nama.toUpperCase().includes(cariProduk.toUpperCase());
-    });
-    console.log(productFiltered);
-    setProducts(productFiltered);
+    e.preventDefault();
+    if (cariProduk.length < 1) {
+      axios.get(`${config.BASE_URL}/api/products/`)
+       .then(res => {
+         setProducts(res.data)
+       })
+       .catch(err => {
+         console.log(err)
+       })
+    } else {
+      const productFiltered = products.filter(product => {
+        return product.nama.toUpperCase().includes(cariProduk.toUpperCase());
+      });
+      setProducts(productFiltered);
+    }
   }
 
   return (

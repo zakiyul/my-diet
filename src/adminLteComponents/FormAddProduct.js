@@ -1,12 +1,17 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import axios from 'axios';
+
+import config from '../global/config';
 
 import { CKEditor } from '@ckeditor/ckeditor5-react'
 import Classic from '@ckeditor/ckeditor5-build-classic';
 
+import { ProductContext } from '../context/ProductContext';
+
 const FormAddProduct = () => {
     const [product, setProduct] = useState({});
     const [productImg, setProductImg] = useState();
+    const { setProducts, handleClose } = useContext(ProductContext);
 
     const handleChange = e => {
         const {value, name} = e.target;
@@ -30,12 +35,17 @@ const FormAddProduct = () => {
         
         axios({
             method: 'POST',
-            url: 'https://zakiulfikri.pythonanywhere.com/api/products/',
+            url: `${config.BASE_URL}/api/products/`,
             headers: {},
             data: payload
         })
          .then((res) => {
-             console.log(res)
+             console.log(res);
+             setProducts(prevState => {
+                return [res.data, ...prevState]
+             });
+             handleClose();
+             window.location.reload(false);
          })
          .catch((e) => {
              console.log(e)

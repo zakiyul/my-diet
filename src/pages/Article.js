@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { ArticleContext } from '../context/ArticleContext';
+import config from '../global/config';
 
 import Navbar from '../components/NavbarComp';
 import CarouselComp from '../components/CarouselComp';
@@ -10,7 +11,7 @@ const ArticleCard = ({ image, title, link }) => {
     return (
         <div className="row mt-2">
                 <div className="border p-3">
-                        <img src={`https://zakiulfikri.pythonanywhere.com/${image}`} className="img-fluid" alt={title} />
+                        <img src={`${config.BASE_URL}/${image}`} className="img-fluid" alt={title} />
                         <h5 className='card-title'>{title}</h5>
                         <p className='card-text'></p>
                         <a href ={link} target="_blank" rel='noreferrer'>Selengkapnya</a>

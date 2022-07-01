@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { FaCalculator, FaPrescriptionBottleAlt, FaNewspaper } from "react-icons/fa";
+import config from '../global/config';
 
 import NavbarComp from "../components/NavbarComp";
 import CarouselComp from "../components/CarouselComp";
@@ -30,7 +31,7 @@ const HomePage = () => {
   const { handleShowBMI } = React.useContext(ProductContext);
 
   const getCaraPakai = async () => {
-    const res = await axios.get("https://zakiulfikri.pythonanywhere.com/api/cara-pakai/");
+    const res = await axios.get(`${config.BASE_URL}/api/cara-pakai/`);
     console.log(res);
   };
 

@@ -1,5 +1,6 @@
 import { useState, useEffect, createContext } from 'react';
 import axios from 'axios';
+import config from '../global/config';
 
 export const ArticleContext = createContext();
 
@@ -10,7 +11,7 @@ export const ArticleProvider = (props) => {
     const [articleId, setArticleId] = useState(null);
 
     const getArticle = async () => {
-        const res = await axios.get('https://zakiulfikri.pythonanywhere.com/api/articles/');
+        const res = await axios.get(`${config.BASE_URL}/api/articles/`);
         setArticles(res.data);
     };
 

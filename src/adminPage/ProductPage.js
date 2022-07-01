@@ -1,6 +1,7 @@
 import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { Modal } from 'react-bootstrap';
+import config from '../global/config';
 import { Navigate } from 'react-router-dom';
 
 import Navbar from "../adminLteComponents/Navbar";
@@ -20,7 +21,7 @@ const ProductPage = () => {
   const [items, setItems] = useState([]);
 
   const getItems = async () => {
-    const res = await axios.get('https://zakiulfikri.pythonanywhere.com/api/products/');
+    const res = await axios.get(`${config.BASE_URL}/api/products/`);
     setItems(res.data)
   }
 

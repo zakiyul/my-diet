@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
+import config from '../global/config';
 
 import { ArticleContext } from '../context/ArticleContext';
 
@@ -32,14 +33,14 @@ const FormAddProduct = (props) => {
             delete payload.delete("image")
         }
 
-        axios.patch(`https://zakiulfikri.pythonanywhere.com/api/articles/${articleId}`, payload)
+        axios.patch(`${config.BASE_URL}/api/articles/${articleId}`, payload)
          .then(res => {
             console.log(res);
          })
          .catch(e => console.log(e))
     }
     const getProduct = async () => {
-        const res = await axios.get(`https://zakiulfikri.pythonanywhere.com/api/articles/${articleId}`);
+        const res = await axios.get(`${config.BASE_URL}/api/articles/${articleId}`);
         setArticle(res.data);
         setArticelId(null);
     }
@@ -61,7 +62,7 @@ const FormAddProduct = (props) => {
             <div className="mb-3">
                 <label htmlFor="">image</label>
                 <input type="file" name="image" onChange={handleImage} id="image" className="form-control" />
-                <small>current image: <a href={`https://zakiulfikri.pythonanywhere.com/${article.image}`}>{article.nama}</a> </small>
+                <small>current image: <a href={`${config.BASE_URL}/${article.image}`}>{article.nama}</a> </small>
             </div>
             <button type='submit' className="btn btn-primary">edit article</button>
         </form>

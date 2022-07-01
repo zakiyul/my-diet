@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import config from '../global/config';
 import { FaTrash, FaPen } from 'react-icons/fa';
 
 import { ArticleContext } from '../context/ArticleContext';
@@ -18,7 +19,7 @@ const TableComp = () => {
       confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`https://zakiulfikri.pythonanywhere.com/api/articles/${id}`)
+        axios.delete(`${config.BASE_URL}/api/articles/${id}`)
         Swal.fire(
           'Deleted!',
           'Your file has been deleted.',
@@ -54,7 +55,7 @@ const TableComp = () => {
                   <td>{d.title.slice(0, 150)}</td>
                   <td>{d.link.slice(0, 50)}</td>
                   <td>
-                      <img height='100px' src={`https://zakiulfikri.pythonanywhere.com/${d.image}`} alt={d.title} />
+                      <img height='100px' src={`${config.BASE_URL}/${d.image}`} alt={d.title} />
                   </td>
                   <td>
                     <button className="btn btn-primary" onClick={() => {
