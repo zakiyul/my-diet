@@ -157,6 +157,8 @@ const Analysis =() => {
                     />
                 </div>
 
+                <h4>Pilih 2 Pertanyaan</h4>
+                <hr/>
                 <div className="input-group mb-3">
                     <div>
                         <Form.Check 

@@ -131,7 +131,7 @@ const ResultAnalysis = ()  => {
                             BMI
                         </div>
                         <div className="col">
-                            {bmi.toString().substring(0, 4)}
+                            {bmi && bmi.toString().substring(0, 4)}
                         </div>
                     </div>
 
